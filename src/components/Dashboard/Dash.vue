@@ -2,12 +2,15 @@
   <div class="flex h-screen bg-gray-100">
     <!-- Sidebar -->
     <aside class="w-64 bg-white shadow-md p-4 flex flex-col">
-      <div class="flex flex-col items-center">
-        <img :src="imgGroup" alt="Logo" class="w-16 h-16 mb-2" />
-        <img :src="imgMark" alt="Nome da empresa" class="w-24 h-6" />
+      <div class="flex flex-col items-center mt-5">
+        <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
+        <h1 class="mt-5 font-semibold text-font-text">PAINEL DE DADOS</h1>
       </div>
-      <nav class="mt-6">
-        <button class="w-full text-left px-4 py-2 text-gray-700 bg-gray-200 rounded-md">Dashboard</button>
+      <nav class="mt-3">
+        <button class="w-52 items-center gap-2 flex text-left py-2.5 px-4 text-font-text bg-hover-dash rounded-md text-[14px] cursor-pointer">
+          <RiDashboardHorizontalLine class="w-5 h-5" />
+          Dashboard
+        </button>
       </nav>
       <div class="mt-auto">
         <button class="w-full text-left px-4 py-2 text-gray-700">Configurações</button>
@@ -52,5 +55,5 @@
 
 <script setup>
 import imgGroup from '@/assets/Group.png';
-import imgMark from '@/assets/CONVICTI.svg';
+import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 </script>

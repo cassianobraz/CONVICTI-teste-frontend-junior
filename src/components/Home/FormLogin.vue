@@ -4,11 +4,11 @@
     <p class="text-start mb-6 text-xs">Insira sua credenciais para acessar a plataforma</p>
     <form @submit.prevent="login">
       <div class="mb-4">
-        <input type="email" placeholder="Seu e-mail"
+        <input type="email" placeholder="Seu e-mail" required
           class="w-72 px-4 py-2 border-gray-300 border rounded-md focus:outline-none text-gray-500" />
       </div>
       <div class="mb-6">
-        <input type="password" placeholder="Sua senha"
+        <input type="password" placeholder="Sua senha" required
           class="w-72 px-4 py-2 border-gray-300 border rounded-md focus:outline-none text-gray-500" />
       </div>
       <button type="submit"
@@ -18,7 +18,11 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
 const login = () => {
-  // Lógica de login aqui
+  router.push('/dashboard');
 };
 </script>
