@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-nunito: Nunito, sans-serif;
+  --color-purple-circle: #5452FC;
+}
