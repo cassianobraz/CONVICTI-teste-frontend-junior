@@ -17,9 +17,9 @@
 
     <!-- Main Content -->
     <div class="flex-1 p-6">
-      <div class="bg-white shadow-md rounded-lg p-6">
+      <div class="p-6">
         <h2 class="text-xl font-semibold mb-4">Estatísticas</h2>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-2 gap-4 bg-white shadow-md rounded-lg">
           <div>
             <p class="text-gray-600">Downloads</p>
             <p class="text-3xl font-bold">330</p>

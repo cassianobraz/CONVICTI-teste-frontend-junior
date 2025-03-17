@@ -10,9 +10,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/graficos',
-    name: 'Graficos',
-    component: lazyLoad('Graficos'),
+    path: '/Dashboard',
+    name: 'Dashboard',
+    component: lazyLoad('Dashboard'),
   },
   {
     path: '/:pathMatch(.*)*',
