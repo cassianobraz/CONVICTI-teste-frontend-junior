@@ -15,6 +15,11 @@ const routes = [
     component: lazyLoad('Dashboard'),
   },
   {
+    path: '/Config',
+    name: 'Config',
+    component: lazyLoad('Config'),
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: lazyLoad('PageNotFound'),

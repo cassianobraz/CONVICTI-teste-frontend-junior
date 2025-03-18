@@ -7,15 +7,15 @@
         <h1 class="mt-5 font-semibold text-font-text text-[14px]">PAINEL DE DADOS</h1>
       </div>
       <nav class="mt-3">
-        <a
-          class="w-[198px] items-center gap-2 flex text-left h-[38px] text-font-text bg-hover-dash rounded-md text-[14px] cursor-pointer">
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] text-font-text rounded-md text-[14px] cursor-pointer hover:bg-hover-dash"
+          @click.prevent="dashboard">
           <RiDashboardHorizontalLine class="w-5 h-5 ml-6" />
           Dashboard
         </a>
       </nav>
       <div class="mt-auto mb-20">
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer"
-          @click.prevent="config">
+        <a
+          class="w-[198px] items-center gap-2 flex text-left h-[38px] rounded-md text-[14px] cursor-pointer bg-hover-dash">
           <GoGear class="w-5 h-5 ml-6" />
           Configurações
         </a>
@@ -29,60 +29,7 @@
 
     <!-- Main Content -->
     <div class="flex-1 mt-11 ml-10 space-y-4">
-      <h2 class="text-[32px] font-semibold mb-4">Estatísticas</h2>
-      <div class="flex gap-6 rounded-md">
-        <div class="w-[264px] h-[141px] bg-white p-5 rounded-md">
-          <div class="flex justify-between">
-            <p class="text-font-dash text-xl">Downloads</p>
-            <img :src="imgCloud" alt="Logo" class="w-[26px] h-[26px]" />
-          </div>
-          <p class="text-[40px] font-bold">330</p>
-          <div class="flex">
-            <div class="flex gap-1 items-center">
-              <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
-              <p>240</p>
-            </div>
-            <div class="flex gap-1 items-center ml-6">
-              <img :src="imgApple" alt="Logo" class="w-4 h-4" />
-              <p>90</p>
-            </div>
-          </div>
-        </div>
-        <div class="w-[318px] h-[141px] bg-white p-5 rounded-md">
-          <div class="flex justify-between">
-            <p class="text-font-dash text-xl">Avaliações</p>
-            <img :src="imgStar" alt="Logo" class="w-[26px] h-[26px]" />
-          </div>
-          <p class="text-[40px] font-bold">4.2<span class="text-[16px]">/5</span></p>
-          <div class="flex">
-            <div class="flex gap-1 items-center">
-              <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
-              <p>5.0</p>
-            </div>
-            <div class="flex gap-1 items-center ml-6">
-              <img :src="imgApple" alt="Logo" class="w-4 h-4" />
-              <p>4.0</p>
-            </div>
-          </div>
-        </div>
-        <div class="w-[304px] h-[141px] bg-white p-5 rounded-md">
-          <div class="flex justify-between">
-            <p class="text-font-dash text-xl">Erros</p>
-            <img :src="imgTimes" alt="Logo" class="w-6 h-6" />
-          </div>
-          <p class="text-[40px] font-bold">4</p>
-          <div class="flex">
-            <div class="flex gap-1 items-center">
-              <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
-              <p>2</p>
-            </div>
-            <div class="flex gap-1 items-center ml-6">
-              <img :src="imgApple" alt="Logo" class="w-4 h-4" />
-              <p>1</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
       <!--! feedbacks -->
       <div class="p-6 bg-white rounded-lg w-[933px] shadow">
         <h2 class="text-xl font-semibold mb-2">Feedbacks</h2>
@@ -149,8 +96,8 @@ import { HiOutlineLogout } from "vue-icons-plus/hi";
 
 const router = useRouter();
 
-function config() {
-  router.push('/Config');
+function dashboard() {
+  router.push('/Dashboard');
 }
 function logout() {
   router.push('/');
