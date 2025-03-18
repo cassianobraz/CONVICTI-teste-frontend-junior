@@ -1,15 +1,15 @@
 <template>
   <div class="flex w-7xl h-[832px] bg-gray-100">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white p-4 flex flex-col items-center">
+    <aside class="w-[250px] h-full bg-white p-4 flex flex-col items-center">
       <div class="flex flex-col items-center mt-5 mx-auto">
-        <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
+        <img :src="imgGroup" alt="Logo" class="w-[84.62px] h-[54.58px] mb-2" />
         <h1 class="mt-5 font-semibold text-font-text text-[14px]">PAINEL DE DADOS</h1>
       </div>
       <nav class="mt-3">
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] text-font-text rounded-md text-[14px] cursor-pointer hover:bg-hover-dash"
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] rounded-md text-[14px] cursor-pointer hover:bg-hover-dash text-font-text-aside"
           @click.prevent="dashboard">
-          <RiDashboardHorizontalLine class="w-5 h-5 ml-6" />
+          <RiDashboardHorizontalLine class="w-5 h-5 ml-6 text-font-text-aside" />
           Dashboard
         </a>
       </nav>
@@ -19,19 +19,19 @@
           <GoGear class="w-5 h-5 ml-6" />
           Configurações
         </a>
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer"
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer mt-4 -mb-8 text-font-text-aside"
           @click.prevent="logout">
-          <HiOutlineLogout class="w-5 h-5 ml-6" />
+          <HiOutlineLogout class="w-5 h-5 ml-6 text-font-text-aside" />
           Sair
         </a>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 mt-11 ml-10 space-y-4">
+    <div class="flex-1 mt-10 ml-12 space-y-3">
       <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
       <!--! feedbacks -->
-      <div class="p-6 bg-white rounded-lg w-[933px] shadow">
+      <div class="p-6 bg-white rounded-lg w-[933px]">
         <h2 class="text-xl font-semibold mb-2">Feedbacks</h2>
         <table class="w-full">
           <thead>
@@ -85,11 +85,6 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import imgGroup from '@/assets/Group.png';
-import imgCloud from '@/assets/cloud.png';
-import imgStar from '@/assets/star.png';
-import imgTimes from '@/assets/times-hexagon.png';
-import imgAndroid from '@/assets/android.png';
-import imgApple from '@/assets/apple.png';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 import { GoGear } from "vue-icons-plus/go";
 import { HiOutlineLogout } from "vue-icons-plus/hi";

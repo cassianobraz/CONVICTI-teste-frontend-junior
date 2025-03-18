@@ -1,34 +1,34 @@
 <template>
   <div class="flex w-7xl h-[832px] bg-gray-100">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white p-4 flex flex-col items-center">
+    <aside class="w-[250px] h-full bg-white p-4 flex flex-col items-center">
       <div class="flex flex-col items-center mt-5 mx-auto">
-        <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
+        <img :src="imgGroup" alt="Logo" class="w-[84.62px] h-[54.58px] mb-2" />
         <h1 class="mt-5 font-semibold text-font-text text-[14px]">PAINEL DE DADOS</h1>
       </div>
       <nav class="mt-3">
         <a
-          class="w-[198px] items-center gap-2 flex text-left h-[38px] text-font-text bg-hover-dash rounded-md text-[14px] cursor-pointer">
-          <RiDashboardHorizontalLine class="w-5 h-5 ml-6" />
+          class="w-[198px] items-center gap-2 flex text-left h-[38px] text-font-text-aside bg-hover-dash rounded-md text-[14px] cursor-pointer">
+          <RiDashboardHorizontalLine class="w-5 h-5 ml-6 text-font-text-aside" />
           Dashboard
         </a>
       </nav>
       <div class="mt-auto mb-20">
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer"
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer text-font-text-aside"
           @click.prevent="config">
-          <GoGear class="w-5 h-5 ml-6" />
+          <GoGear class="w-5 h-5 ml-6 text-font-text-aside" />
           Configurações
         </a>
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer"
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer mt-4 -mb-8 text-font-text-aside"
           @click.prevent="logout">
-          <HiOutlineLogout class="w-5 h-5 ml-6" />
+          <HiOutlineLogout class="w-5 h-5 ml-6 text-font-text-aside" />
           Sair
         </a>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 mt-11 ml-10 space-y-4">
+    <div class="flex-1 mt-10 ml-12 space-y-3">
       <h2 class="text-[32px] font-semibold mb-4">Estatísticas</h2>
       <div class="flex gap-6 rounded-md">
         <div class="w-[264px] h-[141px] bg-white p-5 rounded-md">
@@ -84,7 +84,7 @@
         </div>
       </div>
       <!--! feedbacks -->
-      <div class="p-6 bg-white rounded-lg w-[933px] shadow">
+      <div class="p-6 bg-white rounded-lg w-[930px] h-[268px]">
         <h2 class="text-xl font-semibold mb-2">Feedbacks</h2>
         <table class="w-full">
           <thead>
