@@ -1,6 +1,5 @@
 <template>
-  <div class="w-6xl h-[700px] mt-5 ml-5 border-2 border-gray-300 rounded-lg shadow-lg overflow-hidden">
-    <!-- Imagens no Canto Superior Esquerdo -->
+  <div class="w-7xl h-[832px] overflow-hidden border-2 border-gray-300 rounded-lg shadow-lg">
     <div class="flex">
       <div class="flex flex-col items-center my-6 ml-6">
         <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
@@ -8,19 +7,20 @@
       </div>
 
       <!-- Formulário de Login -->
-      <FormLogin />
+      <div class="flex items-center justify-between h-full w-full">
 
-      <div class="ml-36 h-full relative">
-        <img :src="imgDash" alt="Dashboard" class="mt-10 h-[38rem] w-[40rem]" />
+        <FormLogin />
+        <div class="ml-40 h-full relative mt-14">
+          <img :src="imgDash" alt="Dashboard" class="mt-10 h-[644px] w-[992px]" />
 
-        <!-- Primeiro círculo com clip-path -->
-        <div
-          class="absolute -top-0 mt-1 -left-4 w-[42rem] h-[42rem] border border-purple-circle rounded-full -z-20">
-        </div>
+          <!-- Primeiro círculo -->
+          <div class="absolute -top-0 -mt-9 left-2 w-[755px] h-[755px] border border-purple-circle rounded-full">
+          </div>
 
-        <!-- Segundo círculo com clip-path -->
-        <div
-          class="absolute -top-0 -mt-15 -left-18 w-[49rem] h-[50rem] border border-purple-circle2 rounded-full -z-20">
+          <!-- Segundo círculo -->
+          <div
+            class="absolute -top-0 -mt-26 -left-13 w-[877px] h-[877px] border border-purple-circle2 rounded-full">
+          </div>
         </div>
       </div>
     </div>

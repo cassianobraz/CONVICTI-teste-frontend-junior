@@ -1,20 +1,29 @@
 <template>
-  <div class="flex h-screen bg-gray-100">
+  <div class="flex w-7xl h-[832px] bg-gray-100">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white shadow-md p-4 flex flex-col">
-      <div class="flex flex-col items-center mt-5">
+    <aside class="w-56 bg-white shadow-md p-4 flex flex-col items-center">
+      <div class="flex flex-col items-center mt-5 mx-auto">
         <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
-        <h1 class="mt-5 font-semibold text-font-text">PAINEL DE DADOS</h1>
+        <h1 class="mt-5 font-bold text-font-text text-[14px]">PAINEL DE DADOS</h1>
       </div>
       <nav class="mt-3">
-        <button class="w-52 items-center gap-2 flex text-left py-2.5 px-4 text-font-text bg-hover-dash rounded-md text-[14px] cursor-pointer">
-          <RiDashboardHorizontalLine class="w-5 h-5" />
+        <button
+          class="w-[198px] items-center gap-2 flex text-left h-[38px] text-font-text bg-hover-dash rounded-md text-[14px] cursor-pointer">
+          <RiDashboardHorizontalLine class="w-5 h-5 ml-6" />
           Dashboard
         </button>
       </nav>
-      <div class="mt-auto">
-        <button class="w-full text-left px-4 py-2 text-gray-700">Configurações</button>
-        <button class="w-full text-left px-4 py-2 text-gray-700">Sair</button>
+      <div class="mt-auto mb-20">
+        <button
+          class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer">
+          <GoGear class="w-5 h-5 ml-6" />
+          Configurações
+        </button>
+        <button
+          class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer">
+          <HiOutlineLogout class="w-5 h-5 ml-6" />
+          Sair
+        </button>
       </div>
     </aside>
 
@@ -56,4 +65,6 @@
 <script setup>
 import imgGroup from '@/assets/Group.png';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
+import { GoGear } from "vue-icons-plus/go";
+import { HiOutlineLogout } from "vue-icons-plus/hi";
 </script>
