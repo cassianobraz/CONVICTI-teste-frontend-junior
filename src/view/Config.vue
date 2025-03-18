@@ -1,5 +1,5 @@
 <template>
-  <Config class="flex justify-center items-center w-full" />
+  <Config class="flex justify-center items-center" />
 </template>
 
 <script setup>
