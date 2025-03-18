@@ -1,5 +1,5 @@
 <template>
-  <div class="w-7xl h-[832px] overflow-hidden border-2 border-gray-300 rounded-lg shadow-lg">
+  <div class="w-7xl h-[832px] overflow-hidden">
     <div class="flex">
       <div class="flex flex-col items-center my-6 ml-6">
         <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
@@ -14,12 +14,12 @@
           <img :src="imgDash" alt="Dashboard" class="mt-10 h-[644px] w-[992px]" />
 
           <!-- Primeiro círculo -->
-          <div class="absolute -top-0 -mt-9 left-2 w-[755px] h-[755px] border border-purple-circle rounded-full">
+          <div class="absolute -top-0 -mt-9 left-2 w-[755px] h-[755px] border border-purple-circle rounded-full -z-20">
           </div>
 
           <!-- Segundo círculo -->
           <div
-            class="absolute -top-0 -mt-26 -left-13 w-[877px] h-[877px] border border-purple-circle2 rounded-full">
+            class="absolute -top-0 -mt-26 -left-13 w-[877px] h-[877px] border border-purple-circle2 rounded-full -z-20">
           </div>
         </div>
       </div>
