@@ -101,7 +101,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-gray-100">
+            <tr class="bg-font-line">
               <td class="w-[300px] h-[41px] px-2 py-1">
                 <p class="text-[10px] text-justify text-font-text-dash">
                   Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.
@@ -141,7 +141,7 @@
                 <p class="text-xs -mt-4">IOS</p>
               </td>
             </tr>
-            <tr class="bg-gray-100">
+            <tr class="bg-font-line">
               <td class="h-[27px] px-2 py-1"></td>
               <td class="h-[27px] px-2 py-1"></td>
               <td class="h-[27px] px-2 py-1"></td>
@@ -155,7 +155,7 @@
               <td class="h-[27px] px-2 py-1"></td>
               <td class="h-[27px] px-2 py-1"></td>
             </tr>
-            <tr class="bg-gray-100">
+            <tr class="bg-font-line">
               <td class="h-[27px] px-2 py-1"></td>
               <td class="h-[27px] px-2 py-1"></td>
               <td class="h-[27px] px-2 py-1"></td>
