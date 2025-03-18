@@ -1,5 +1,5 @@
 <template>
-  <Dash />
+  <Dash class="flex justify-center items-center max-w-7xl" />
 </template>
 
 <script setup>

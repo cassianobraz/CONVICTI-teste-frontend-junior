@@ -28,7 +28,7 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 mt-10 ml-12 space-y-3">
+    <div class="flex-1 -mt-26 ml-12 space-y-3">
       <h2 class="text-[32px] font-semibold mb-4">Estatísticas</h2>
       <div class="flex gap-6 rounded-md">
         <div class="w-[264px] h-[141px] bg-white p-5 rounded-md">

@@ -28,10 +28,10 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 mt-10 ml-12 space-y-3">
+    <div class="flex-1 mt-5 ml-12 space-y-6">
       <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
       <!--! feedbacks -->
-      <div class="p-6 bg-white rounded-lg w-[933px]">
+      <div class="p-6 bg-white rounded-lg w-[916px] h-[342px]">
         <h2 class="text-xl font-semibold mb-2">Feedbacks</h2>
         <table class="w-full">
           <thead>
@@ -58,7 +58,7 @@
         </table>
       </div>
       <!--! final -->
-      <div class="px-6 py-4 bg-white rounded-lg w-[933px] h-[153px]">
+      <div class="px-6 py-4 bg-white rounded-lg w-[916px] h-[342px]">
         <h2 class="text-xl font-semibold mb-4">Novas Funcionalidades</h2>
         <div class="mr-8">
           <div class="flex justify-between text-font-dash text-xs -mt-1">
