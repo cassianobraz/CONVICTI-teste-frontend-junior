@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-7xl h-[832px] bg-gray-100">
     <!-- Sidebar -->
-    <aside class="w-56 bg-white shadow-md p-4 flex flex-col items-center">
+    <aside class="w-64 bg-white p-4 flex flex-col items-center">
       <div class="flex flex-col items-center mt-5 mx-auto">
         <img :src="imgGroup" alt="Logo" class="w-20 h-14 mb-2" />
         <h1 class="mt-5 font-bold text-font-text text-[14px]">PAINEL DE DADOS</h1>
@@ -28,42 +28,72 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 p-6">
-      <div class="p-6">
-        <h2 class="text-xl font-semibold mb-4">Estatísticas</h2>
-        <div class="grid grid-cols-2 gap-4 bg-white shadow-md rounded-lg">
-          <div>
-            <p class="text-gray-600">Downloads</p>
-            <p class="text-3xl font-bold">330</p>
+    <div class="flex-1 mt-11 ml-10">
+      <h2 class="text-[32px] font-semibold mb-4">Estatísticas</h2>
+      <div class="flex gap-8 rounded-md">
+        <div class="w-[264px] h-[141px] bg-white p-5">
+          <div class="flex justify-between">
+            <p class="text-font-dash text-xl">Downloads</p>
+            <img :src="imgCloud" alt="Logo" class="w-[26px] h-[26px]" />
           </div>
-          <div>
-            <p class="text-gray-600">Avaliações</p>
-            <p class="text-3xl font-bold">4.2★</p>
+          <p class="text-[40px] font-bold">330</p>
+          <div class="flex">
+            <div class="flex gap-1 items-center">
+              <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
+              <p>240</p>
+            </div>
+            <div class="flex gap-1 items-center ml-6">
+              <img :src="imgApple" alt="Logo" class="w-4 h-4" />
+              <p>90</p>
+            </div>
           </div>
         </div>
-
-        <h3 class="mt-6 text-lg font-semibold">Feedbacks</h3>
-        <div class="bg-gray-100 p-4 rounded-md mt-2">
-          <p class="text-gray-700">"Os usuários podem atualizar manualmente os dados de qualidade."</p>
-          <p class="text-sm text-gray-500">03/04/24</p>
+        <div class="w-[318px] h-[141px] bg-white p-5">
+          <div class="flex justify-between">
+            <p class="text-font-dash text-xl">Avaliações</p>
+            <img :src="imgStar" alt="Logo" class="w-[26px] h-[26px]" />
+          </div>
+          <p class="text-[40px] font-bold">4.2<span class="text-[16px]">/5</span></p>
+          <div class="flex">
+            <div class="flex gap-1 items-center">
+              <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
+              <p>5.0</p>
+            </div>
+            <div class="flex gap-1 items-center ml-6">
+              <img :src="imgApple" alt="Logo" class="w-4 h-4" />
+              <p>4.0</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-gray-100 p-4 rounded-md mt-2">
-          <p class="text-gray-700">"Os usuários podem editar mais rapidamente as coletas."</p>
-          <p class="text-sm text-gray-500">30/03/24</p>
+        <div class="w-[304px] h-[141px] bg-white p-5">
+          <div class="flex justify-between">
+            <p class="text-font-dash text-xl">Erros</p>
+            <img :src="imgTimes" alt="Logo" class="w-6 h-6" />
+          </div>
+            <p class="text-[40px] font-bold">4</p>
+            <div class="flex">
+              <div class="flex gap-1 items-center">
+                <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
+                <p>2</p>
+              </div>
+              <div class="flex gap-1 items-center ml-6">
+                <img :src="imgApple" alt="Logo" class="w-4 h-4" />
+                <p>1</p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <h3 class="mt-6 text-lg font-semibold">Novas Funcionalidades</h3>
-        <ul class="list-disc pl-6 mt-2 text-gray-700">
-          <li>Veículo Em Rota</li>
-          <li>Avaliação De Coleta</li>
-        </ul>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup>
 import imgGroup from '@/assets/Group.png';
+import imgCloud from '@/assets/cloud.png';
+import imgStar from '@/assets/star.png';
+import imgTimes from '@/assets/times-hexagon.png';
+import imgAndroid from '@/assets/android.png';
+import imgApple from '@/assets/apple.png';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 import { GoGear } from "vue-icons-plus/go";
 import { HiOutlineLogout } from "vue-icons-plus/hi";
