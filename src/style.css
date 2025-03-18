@@ -2,10 +2,13 @@
 
 @theme {
   --font-nunito: Nunito, sans-serif;
-  --color-purple-circle: #5452FC;
-  --color-purple-circle2: #ADADFA;
-  --color-hover-dash: #DEE6F8;
+  --color-purple-circle: #5452fc;
+  --color-purple-circle2: #adadfa;
+  --color-hover-dash: #dee6f8;
   --color-font-text: #272964;
-  --color-font-dash: #A2A2A2;
+  --color-font-dash: #a2a2a2;
+  --color-font-taxa: #00ec6d;
+  --color-font-line: #f6f6f6;
+  --color-font-table: #a5a5a5;
+  --color-font-text-dash: #303030;
 }
-
