@@ -103,7 +103,7 @@
           <tbody>
             <tr class="bg-gray-100">
               <td class="w-[300px] h-[41px] px-2 py-1">
-                <p class="text-[10px] text-justify">
+                <p class="text-[10px] text-justify text-font-text-dash">
                   Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.
                   Quando vira o mês o aplicativo apaga os dados da produção dos meses anteriores, não sendo possível
                   consultar os meses anteriores. Antes não tinha esse problema.
@@ -124,7 +124,7 @@
             </tr>
             <tr class="bg-white">
               <td class="w-[53px] h-[16px] px-2 py-1">
-                <p class="text-[10px]">
+                <p class="text-[10px] text-font-text-dash">
                   Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.
                 </p>
               </td>

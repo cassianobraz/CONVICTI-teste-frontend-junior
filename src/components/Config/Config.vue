@@ -32,27 +32,70 @@
       <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
       <!--! feedbacks -->
       <div class="p-6 bg-white rounded-lg w-[916px] h-[342px]">
-        <h2 class="text-xl font-semibold mb-2">Feedbacks</h2>
-        <table class="w-full">
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-semibold mb-2">Perfils</h2>
+          <AiFillPlusSquare class="text-purple-circle rounded-md" />
+        </div>
+        <div class="border-t border-border-config"></div>
+        <table class="w-full border-collapse">
           <thead>
-            <tr class="text-left text-font-table text-sm">
-              <th>Avaliação</th>
-              <th class="px-5">Data</th>
-              <th class="">Avaliação</th>
-              <th class="">Melhorias</th>
-              <th class="">Plataforma</th>
+            <tr class="border-b border-border-config  text-left text-xs text-font-text-title">
+              <th class="py-2 text-font-text-title text-xs">Nome</th>
+              <th class="px-2 py-2 text-font-text-title text-xs">Quantidade De Usuarios</th>
+              <th class="px-2 py-2 text-font-text-title text-xs">Permissões</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(feedback, index) in feedbacks" :key="index" class="mb-5">
-              <td class="text-font-text-dash text-[10px] w-[408px] h-[41px] text-justify">
-                {{ feedback.text }}
+              <tr class="bg-font-line">
+                <td class="py-2 px-2">
+                <p class="text-sm font-medium text-gray-700">Admin</p>
               </td>
-              <td class="px-5 text-font-text-dash text-sm">{{ feedback.date }}</td>
-              <td class="text-font-text-dash text-sm">{{ feedback.rating }}</td>
-              <td class="text-font-text-dash text-sm whitespace-pre-line">{{ feedback.improvements }}
+              <td class="py-2 px-2">
+                <p class="text-sm text-gray-700">1</p>
               </td>
-              <td class="text-font-text-dash text-sm">{{ feedback.platform }}</td>
+              <td class="py-2 px-2">
+                <span
+                  class="bg-circle-config text-xs font-medium mr-2 w-[48px] h-[22px] rounded-4xl items-center flex justify-center">Tudo</span>
+              </td>
+              <td class="w-[14px] h-[14px]">
+                <img :src="imgEdit" alt="icon de editar">
+              </td>
+            </tr>
+            <tr class="bg-white">
+              <td class="py-2 px-2">
+                <p class="text-sm font-medium text-gray-700">Desenvolvedor</p>
+              </td>
+              <td class="py-2 px-2">
+                <p class="text-sm text-gray-700">2</p>
+              </td>
+              <td class="py-2 px-2">
+                <span
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Downloads</span>
+                <span
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Avaliações</span>
+                <span
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Erros</span>
+                  <span class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Novas
+                    Funcionalidades</span>
+                  </td>
+                  <td class="w-[14px] h-[14px]">
+                    <img :src="imgEdit" alt="icon de editar" class="mr-5">
+              </td>
+            </tr>
+            <tr class="bg-gray-100">
+              <td class="py-2 px-2">
+                <p class="text-sm font-medium text-gray-700">Recursos Humanos</p>
+              </td>
+              <td class="py-2 px-2">
+                <p class="text-sm text-gray-700">1</p>
+              </td>
+              <td class="py-2 px-2">
+                <span
+                  class="flex w-[70px] items-center justify-center bg-circle-config text-xs font-medium mr-2 rounded-4xl h-[22px]">Nenhuma</span>
+              </td>
+              <td class="w-[14px] h-[14px]">
+                <img :src="imgEdit" alt="icon de editar">
+              </td>
             </tr>
           </tbody>
         </table>
@@ -82,12 +125,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import imgGroup from '@/assets/Group.png';
+import imgEdit from '@/assets/edit.png';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 import { GoGear } from "vue-icons-plus/go";
 import { HiOutlineLogout } from "vue-icons-plus/hi";
+import { AiFillPlusSquare } from "vue-icons-plus/ai";
 
 const router = useRouter();
 
@@ -97,21 +141,4 @@ function dashboard() {
 function logout() {
   router.push('/');
 }
-
-const feedbacks = ref([
-  {
-    text: "Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite. Quando vira o mês o aplicativo apaga os dados da produção dos meses anteriores, não sendo possível consultar os meses anteriores. Antes não tinha esse problema.",
-    date: "01/04/24",
-    rating: "4",
-    improvements: "Dados de Produção   \n  Suporte ao Usuário",
-    platform: "Android"
-  },
-  {
-    text: "Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.",
-    date: "30/03/24",
-    rating: "5",
-    improvements: "-",
-    platform: "IOS"
-  }
-]);
 </script>
