@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-7xl h-[832px] bg-gray-100">
-    <!-- Sidebar -->
+    <!--! Sidebar -->
     <aside class="w-[250px] h-full bg-white p-4 flex flex-col items-center">
       <div class="flex flex-col items-center mt-5 mx-auto">
         <img :src="imgGroup" alt="Logo" class="w-[84.62px] h-[54.58px] mb-2" />
@@ -27,10 +27,9 @@
       </div>
     </aside>
 
-    <!-- Main Content -->
     <div class="flex-1 mt-5 ml-12 space-y-6">
       <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
-      <!--! feedbacks -->
+      <!--! Perfils -->
       <div class="p-6 bg-white rounded-lg w-[916px] h-[342px]">
         <div class="flex justify-between items-center">
           <h2 class="text-xl font-semibold mb-2">Perfils</h2>
@@ -39,86 +38,155 @@
         <div class="border-t border-border-config"></div>
         <table class="w-full border-collapse">
           <thead>
-            <tr class="border-b border-border-config  text-left text-xs text-font-text-title">
-              <th class="py-2 text-font-text-title text-xs">Nome</th>
-              <th class="px-2 py-2 text-font-text-title text-xs">Quantidade De Usuarios</th>
-              <th class="px-2 py-2 text-font-text-title text-xs">Permissões</th>
+            <tr class="border-b border-border-config text-left text-xs text-font-text-title">
+              <th class="text-font-text-title text-xs">Nome</th>
+              <th class="px-2 text-font-text-title text-xs">Quantidade De Usuarios</th>
+              <th class="px-2 text-font-text-title text-xs">Permissões</th>
             </tr>
           </thead>
           <tbody>
-              <tr class="bg-font-line">
-                <td class="py-2 px-2">
+            <tr>
+              <td colspan="2" class="h-2"></td>
+            </tr>
+            <tr class="bg-font-line h-[26px]">
+              <td class="h-[22px] px-2">
                 <p class="text-sm font-medium text-gray-700">Admin</p>
               </td>
-              <td class="py-2 px-2">
+              <td class="px-2 h-[22px]">
                 <p class="text-sm text-gray-700">1</p>
               </td>
-              <td class="py-2 px-2">
+              <td class="h-[22px] px-2">
                 <span
                   class="bg-circle-config text-xs font-medium mr-2 w-[48px] h-[22px] rounded-4xl items-center flex justify-center">Tudo</span>
               </td>
-              <td class="w-[14px] h-[14px]">
-                <img :src="imgEdit" alt="icon de editar">
+              <td class="w-[14px] h-[14px] bg-white">
+                <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2">
               </td>
             </tr>
-            <tr class="bg-white">
-              <td class="py-2 px-2">
+            <tr class="bg-white h-[40px]">
+              <td class="h-[22px] px-2">
                 <p class="text-sm font-medium text-gray-700">Desenvolvedor</p>
               </td>
-              <td class="py-2 px-2">
+              <td class="h-[22px] px-2">
                 <p class="text-sm text-gray-700">2</p>
               </td>
-              <td class="py-2 px-2">
+              <td class="h-[22px] px-2">
                 <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Downloads</span>
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl h-[22px]">Downloads</span>
                 <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Avaliações</span>
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]">Avaliações</span>
                 <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Erros</span>
-                  <span class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl">Novas
-                    Funcionalidades</span>
-                  </td>
-                  <td class="w-[14px] h-[14px]">
-                    <img :src="imgEdit" alt="icon de editar" class="mr-5">
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl h-[22px]">Erros</span>
+                <span
+                  class="inline-block bg-circle-config text-xs font-medium mr-2 h-[22px] px-2.5 py-0.5 rounded-4xl">Novas
+                  Funcionalidades</span>
+              </td>
+              <td class="w-[14px] h-[14px] bg-white">
+                <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2">
               </td>
             </tr>
-            <tr class="bg-gray-100">
-              <td class="py-2 px-2">
+            <tr class="bg-gray-100 h-[26px]">
+              <td class="h-[22px] px-2">
                 <p class="text-sm font-medium text-gray-700">Recursos Humanos</p>
               </td>
-              <td class="py-2 px-2">
+              <td class="h-[22px] px-2">
                 <p class="text-sm text-gray-700">1</p>
               </td>
-              <td class="py-2 px-2">
+              <td class="h-[22px] px-2">
                 <span
                   class="flex w-[70px] items-center justify-center bg-circle-config text-xs font-medium mr-2 rounded-4xl h-[22px]">Nenhuma</span>
               </td>
-              <td class="w-[14px] h-[14px]">
-                <img :src="imgEdit" alt="icon de editar">
+              <td class="w-[14px] h-[14px] bg-white">
+                <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2">
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <!--! final -->
-      <div class="px-6 py-4 bg-white rounded-lg w-[916px] h-[342px]">
-        <h2 class="text-xl font-semibold mb-4">Novas Funcionalidades</h2>
-        <div class="mr-8">
-          <div class="flex justify-between text-font-dash text-xs -mt-1">
-            <h3>Funcionalidade</h3>
-            <h3>Taxa De Uso</h3>
-          </div>
-          <div class="space-y-2 mt-2">
-            <div class="flex justify-between px-4 w-[876px] h-[27px]">
-              <h3>Veículo em Rota</h3>
-              <h3 class="text-font-taxa mr-3">92%</h3>
-            </div>
-            <div class="flex justify-between px-4 bg-font-line w-[876px] h-[27px]">
-              <h3>Avaliação de coleta</h3>
-              <h3 class="text-font-taxa mr-3">78%</h3>
-            </div>
-          </div>
+
+      <!--! Usuarios -->
+      <div class="p-6 bg-white rounded-lg w-[916px] h-[342px]">
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-semibold mb-2">Usuários</h2>
+          <AiFillPlusSquare class="text-purple-circle rounded-md" />
         </div>
+        <div class="border-t border-border-config"></div>
+        <table class="w-[880px] border-collapse">
+          <thead class="w-full">
+            <tr class="border-b border-border-config text-left text-xs text-font-text-title">
+              <th class="py-2 text-font-text-title text-xs text-left w-[230px]">Nome</th>
+              <th class="py-2 text-font-text-title text-xs text-left w-[270px]">Email</th>
+              <th class="py-2 text-font-text-title text-xs text-left w-[210px]">Perfil</th>
+              <th class="py-2 text-font-text-title text-xs text-left w-[90px]">Status</th>
+              <th class="py-2 text-font-text-title text-xs w-[50px] text-right"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="5" class="h-2"></td>
+            </tr>
+            <tr class="bg-font-line">
+              <td class="px-2 h-[26px]">
+                <p class="text-sm font-medium text-gray-700">Junior Luiz</p>
+              </td>
+              <td class="h-[26px]">
+                <p class="text-sm text-gray-700">junior@convicti.com.br</p>
+              </td>
+              <td class="h-[26px]">
+                <span class="text-xs font-medium">Admin</span>
+              </td>
+              <td class="h-[26px] text-center">
+                <span
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded-md uppercase text-font-ativo">
+                  Ativo
+                </span>
+              </td>
+              <td class="w-[14px] h-[14px] bg-white">
+                <img :src="imgEdit" alt="icon de editar" class="ml-5">
+              </td>
+            </tr>
+            <tr class="bg-white h-[40px]">
+              <td class="px-2 h-[26px]">
+                <p class="text-sm font-medium text-gray-700">joao Lucas</p>
+              </td>
+              <td class="h-[26px]">
+                <p class="text-sm text-gray-700">joao.lucas@convicti.com.br</p>
+              </td>
+              <td class="h-[26px]">
+                <span class="text-xs font-medium">Desenvolvedor</span>
+              </td>
+              <td class="h-[26px] text-center">
+                <span
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded-md uppercase text-font-ativo">
+                  Ativo
+                </span>
+              </td>
+              <td class="w-[14px] h-[14px] bg-white">
+                <img :src="imgEdit" alt="icon de editar" class="ml-5">
+              </td>
+            </tr>
+            <tr class="bg-font-line">
+              <td class="px-2 h-[26px]">
+                <p class="text-sm font-medium text-gray-700">Cíntia Lopes</p>
+              </td>
+              <td class="h-[26px]">
+                <p class="text-sm text-gray-700">cintia.lopes@convicti.com.br</p>
+              </td>
+              <td class="h-[26px]">
+                <span class="text-xs font-medium">Recursos Humanos</span>
+              </td>
+              <td class="h-[26px] text-center">
+                <span
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded-md uppercase text-font-ativo">
+                  Ativo
+                </span>
+              </td>
+              <td class="w-[14px] h-[14px] bg-white">
+                <img :src="imgEdit" alt="icon de editar" class="ml-5">
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
