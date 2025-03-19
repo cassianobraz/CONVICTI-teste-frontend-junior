@@ -123,7 +123,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import imgGroup from '@/assets/Group.png';
+import imgGroup from '@/assets/Group.svg';
 import imgEdit from '@/assets/edit.svg';
 import imgPlus from '@/assets/square-plus.svg';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";

@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import imgGroup from '@/assets/Group.png';
+import imgGroup from '@/assets/Group.svg';
 import imgMark from '@/assets/CONVICTI.svg';
 import imgDash from '@/assets/Dashboard.svg';
 import FormLogin from './FormLogin.vue';

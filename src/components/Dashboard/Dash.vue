@@ -191,7 +191,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import imgGroup from '@/assets/Group.png';
+import imgGroup from '@/assets/Group.svg';
 import imgCloud from '@/assets/cloud.png';
 import imgStar from '@/assets/star.png';
 import imgTimes from '@/assets/times-hexagon.png';
