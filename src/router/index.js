@@ -22,7 +22,7 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: lazyLoad('PageNotFound'),
+    component: lazyLoad('Home'),
   },
 ]
 
