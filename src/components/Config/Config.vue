@@ -30,10 +30,10 @@
     <div class="flex-1 mt-5 ml-12 space-y-6">
       <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
       <!--! Perfils -->
-      <div class="p-6 pr-10 bg-white rounded-lg w-[916px] h-[342px]">
+      <div class="p-6 pr-11 bg-white rounded-lg w-[916px] h-[342px]">
         <div class="flex justify-between items-center">
           <h2 class="text-xl font-semibold mb-2">Perfils</h2>
-          <AiFillPlusSquare class="text-purple-circle rounded-2xl" />
+          <img :src="imgPlus" alt="icon de editar">
         </div>
         <div class="border-t border-border-config"></div>
         <table class="w-full border-collapse">
@@ -105,10 +105,10 @@
       </div>
 
       <!--! Usuarios -->
-      <div class="p-6 pr-10 bg-white rounded-lg w-[916px] h-[342px]">
+      <div class="p-6 pr-11 bg-white rounded-lg w-[916px] h-[342px]">
         <div class="flex justify-between items-center">
           <h2 class="text-xl font-semibold mb-2">Usuários</h2>
-          <AiFillPlusSquare class="text-purple-circle rounded-2xl" />
+          <img :src="imgPlus" alt="icon de editar">
         </div>
         <div class="border-t border-border-config"></div>
         <table class="w-full border-collapse">
@@ -137,7 +137,7 @@
               </td>
               <td class="h-[26px] text-center rounded-r">
                 <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo">
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo rounded">
                   Ativo
                 </span>
               </td>
@@ -177,7 +177,7 @@
               </td>
               <td class="h-[26px] text-center rounded-r">
                 <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo">
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo rounded">
                   Ativo
                 </span>
               </td>
@@ -195,7 +195,8 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import imgGroup from '@/assets/Group.png';
-import imgEdit from '@/assets/edit.png';
+import imgEdit from '@/assets/edit.svg';
+import imgPlus from '@/assets/square-plus.svg';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 import { GoGear } from "vue-icons-plus/go";
 import { HiOutlineLogout } from "vue-icons-plus/hi";
