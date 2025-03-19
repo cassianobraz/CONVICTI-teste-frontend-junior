@@ -192,11 +192,11 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import imgGroup from '@/assets/Group.svg';
-import imgCloud from '@/assets/cloud.png';
-import imgStar from '@/assets/star.png';
-import imgTimes from '@/assets/times-hexagon.png';
-import imgAndroid from '@/assets/android.png';
-import imgApple from '@/assets/apple.png';
+import imgCloud from '@/assets/cloud.svg';
+import imgStar from '@/assets/star.svg';
+import imgTimes from '@/assets/times-hexagon.svg';
+import imgAndroid from '@/assets/android.svg';
+import imgApple from '@/assets/apple.svg';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 import { GoGear } from "vue-icons-plus/go";
 import { HiOutlineLogout } from "vue-icons-plus/hi";
