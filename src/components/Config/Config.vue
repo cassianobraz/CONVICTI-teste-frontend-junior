@@ -13,13 +13,13 @@
           Dashboard
         </a>
       </nav>
-      <div class="mt-auto mb-20">
-        <a
-          class="w-[198px] items-center gap-2 flex text-left h-[38px] rounded-md text-[14px] cursor-pointer bg-hover-dash">
-          <GoGear class="w-5 h-5 ml-6" />
+      <div class="mt-auto mb-15">
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer text-font-text-aside"
+          @click.prevent="config">
+          <GoGear class="w-5 h-5 ml-6 text-font-text-aside" />
           Configurações
         </a>
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer mt-4 -mb-8 text-font-text-aside"
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer mt-2 -mb-8 text-font-text-aside"
           @click.prevent="logout">
           <HiOutlineLogout class="w-5 h-5 ml-6 text-font-text-aside" />
           Sair
