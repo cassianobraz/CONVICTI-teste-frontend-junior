@@ -1,5 +1,5 @@
 <template>
-  <div class="flex w-7xl h-[832px] bg-gray-100">
+  <div class="flex w-7xl h-[52rem] bg-gray-100">
     <!--! Sidebar -->
     <aside class="w-[250px] h-full bg-white p-4 flex flex-col items-center">
       <div class="flex flex-col items-center mt-5 mx-auto">
@@ -42,59 +42,26 @@
               <th class="text-font-text-title text-xs py-2">Nome</th>
               <th class="px-2 py-2 text-font-text-title text-xs">Quantidade De Usuarios</th>
               <th class="px-2 py-2 text-font-text-title text-xs">Permissões</th>
+              <th class="px-2 py-2 text-font-text-title text-xs"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td colspan="2" class="h-2"></td>
             </tr>
-            <tr class="bg-font-line h-[26px]">
+            <tr v-for="(perfil, index) in perfis" :key="index"
+              :class="index % 2 === 0 ? 'bg-font-line h-[26px]' : 'bg-white h-[40px]'">
               <td class="h-[22px] px-2 rounded-l">
-                <p class="text-sm font-medium">Admin</p>
+                <p class="text-sm font-medium">{{ perfil.nome }}</p>
               </td>
               <td class="px-2 h-[22px]">
-                <p class="text-sm">1</p>
+                <p class="text-sm">{{ perfil.quantidadeUsuarios }}</p>
               </td>
               <td class="h-[22px] px-2 rounded-r">
-                <span
-                  class="bg-circle-config text-xs font-medium mr-2 w-[48px] h-[22px] rounded-4xl items-center flex justify-center">Tudo</span>
-              </td>
-              <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2">
-              </td>
-            </tr>
-            <tr class="bg-white h-[40px]">
-              <td class="h-[22px] px-2">
-                <p class="text-sm font-medium">Desenvolvedor</p>
-              </td>
-              <td class="h-[22px] px-2">
-                <p class="text-sm">2</p>
-              </td>
-              <td class="h-[22px] px-2">
-                <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl h-[22px]">Downloads</span>
-                <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]">Avaliações</span>
-                <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl h-[22px]">Erros</span>
-                <span
-                  class="inline-block bg-circle-config text-xs font-medium mr-2 h-[22px] px-2.5 py-0.5 rounded-4xl">Novas
-                  Funcionalidades</span>
-              </td>
-              <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2">
-              </td>
-            </tr>
-            <tr class="bg-gray-100 h-[26px]">
-              <td class="h-[22px] px-2 rounded-l">
-                <p class="text-sm font-medium">Recursos Humanos</p>
-              </td>
-              <td class="h-[22px] px-2">
-                <p class="text-sm">1</p>
-              </td>
-              <td class="h-[22px] px-2 rounded-r">
-                <span
-                  class="flex w-[70px] items-center justify-center bg-circle-config text-xs font-medium mr-2 rounded-4xl h-[22px]">Nenhuma</span>
+                <span v-for="(permissao, idx) in perfil.permissoes" :key="idx" :class="getPermissaoClass(permissao)"
+                  class="text-xs font-medium rounded-4xl h-[22px] items-center justify-center">
+                  {{ permissao }}
+                </span>
               </td>
               <td class="w-[14px] h-[14px] bg-white">
                 <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2">
@@ -123,62 +90,23 @@
           </thead>
           <tbody>
             <tr>
-              <td colspan="5" class="h-2"></td>
+              <td colspan="2" class="h-2"></td>
             </tr>
-            <tr class="bg-font-line rounded">
+            <tr v-for="(usuario, index) in usuarios" :key="index"
+              :class="index % 2 === 0 ? 'bg-font-line h-[26px]' : 'bg-white h-[40px]'">
               <td class="px-2 h-[26px] rounded-l">
-                <p class="text-sm font-medium">Junior Luiz</p>
+                <p class="text-sm font-medium">{{ usuario.nome }}</p>
               </td>
               <td class="h-[26px]">
-                <p class="text-sm">junior@convicti.com.br</p>
+                <p class="text-sm">{{ usuario.email }}</p>
               </td>
               <td class="h-[26px]">
-                <span class="text-xs font-medium">Admin</span>
+                <span class="text-xs font-medium">{{ usuario.perfil }}</span>
               </td>
               <td class="h-[26px] text-center rounded-r">
                 <span
                   class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo rounded">
-                  Ativo
-                </span>
-              </td>
-              <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="ml-6">
-              </td>
-            </tr>
-            <tr class="bg-white h-[40px]">
-              <td class="px-2 h-[26px] rounded">
-                <p class="text-sm font-medium">Joao Lucas</p>
-              </td>
-              <td class="h-[26px]">
-                <p class="text-sm">joao.lucas@convicti.com.br</p>
-              </td>
-              <td class="h-[26px]">
-                <span class="text-xs font-medium">Desenvolvedor</span>
-              </td>
-              <td class="h-[26px] text-center">
-                <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded uppercase text-font-ativo">
-                  Ativo
-                </span>
-              </td>
-              <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="ml-6">
-              </td>
-            </tr>
-            <tr class="bg-font-line">
-              <td class="px-2 h-[26px] rounded-l">
-                <p class="text-sm font-medium">Cíntia Lopes</p>
-              </td>
-              <td class="h-[26px]">
-                <p class="text-sm">cintia.lopes@convicti.com.br</p>
-              </td>
-              <td class="h-[26px]">
-                <span class="text-xs font-medium">Recursos Humanos</span>
-              </td>
-              <td class="h-[26px] text-center rounded-r">
-                <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo rounded">
-                  Ativo
+                  {{ usuario.status }}
                 </span>
               </td>
               <td class="w-[14px] h-[14px] bg-white">
@@ -193,6 +121,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import imgGroup from '@/assets/Group.png';
 import imgEdit from '@/assets/edit.svg';
@@ -200,7 +129,6 @@ import imgPlus from '@/assets/square-plus.svg';
 import { RiDashboardHorizontalLine } from "vue-icons-plus/ri";
 import { GoGear } from "vue-icons-plus/go";
 import { HiOutlineLogout } from "vue-icons-plus/hi";
-import { AiFillPlusSquare } from "vue-icons-plus/ai";
 
 const router = useRouter();
 
@@ -210,4 +138,64 @@ function dashboard() {
 function logout() {
   router.push('/');
 }
+
+function getPermissaoClass(permissao) {
+  switch (permissao) {
+    case 'Tudo':
+      return 'flex items-center justify-center bg-circle-config text-xs font-medium w-[48px] h-[22px] rounded-4xl';
+    case 'Downloads':
+      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
+    case 'Avaliações':
+      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
+    case 'Erros':
+      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl h-[22px]';
+    case 'Novas Funcionalidades':
+      return 'inline-block bg-circle-config text-xs font-medium mr-2 h-[22px] px-2.5 py-0.5 rounded-4xl';
+    case 'Nenhuma':
+      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
+    default:
+      return 'bg-circle-config w-[48px]';
+  }
+}
+
+// Array de objetos para perfis
+const perfis = ref([
+  {
+    nome: 'Admin',
+    quantidadeUsuarios: 1,
+    permissoes: [ 'Tudo' ]
+  },
+  {
+    nome: 'Desenvolvedor',
+    quantidadeUsuarios: 2,
+    permissoes: [ 'Downloads', 'Avaliações', 'Erros', 'Novas Funcionalidades' ]
+  },
+  {
+    nome: 'Recursos Humanos',
+    quantidadeUsuarios: 1,
+    permissoes: [ 'Nenhuma' ]
+  }
+]);
+
+// Array de objetos para usuários
+const usuarios = ref([
+  {
+    nome: 'Junior Luiz',
+    email: 'junior@convicti.com.br',
+    perfil: 'Admin',
+    status: 'Ativo'
+  },
+  {
+    nome: 'Joao Lucas',
+    email: 'joao.lucas@convicti.com.br',
+    perfil: 'Desenvolvedor',
+    status: 'Ativo'
+  },
+  {
+    nome: 'Cíntia Lopes',
+    email: 'cintia.lopes@convicti.com.br',
+    perfil: 'Recursos Humanos',
+    status: 'Ativo'
+  }
+]);
 </script>
