@@ -14,7 +14,7 @@
         </a>
       </nav>
       <div class="mt-auto mb-15">
-        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] hover:bg-hover-dash rounded-md text-[14px] cursor-pointer text-font-text-aside"
+        <a class="w-[198px] items-center gap-2 flex text-left h-[38px] rounded-md text-[14px] cursor-pointer text-font-text-aside bg-hover-dash"
           @click.prevent="config">
           <GoGear class="w-5 h-5 ml-6 text-font-text-aside" />
           Configurações
@@ -30,18 +30,18 @@
     <div class="flex-1 mt-5 ml-12 space-y-6">
       <h2 class="text-[32px] font-semibold mb-4">Configurações</h2>
       <!--! Perfils -->
-      <div class="p-6 bg-white rounded-lg w-[916px] h-[342px]">
+      <div class="p-6 pr-10 bg-white rounded-lg w-[916px] h-[342px]">
         <div class="flex justify-between items-center">
           <h2 class="text-xl font-semibold mb-2">Perfils</h2>
-          <AiFillPlusSquare class="text-purple-circle rounded-md" />
+          <AiFillPlusSquare class="text-purple-circle rounded-2xl" />
         </div>
         <div class="border-t border-border-config"></div>
         <table class="w-full border-collapse">
           <thead>
-            <tr class="border-b border-border-config text-left text-xs text-font-text-title">
-              <th class="text-font-text-title text-xs">Nome</th>
-              <th class="px-2 text-font-text-title text-xs">Quantidade De Usuarios</th>
-              <th class="px-2 text-font-text-title text-xs">Permissões</th>
+            <tr class="border-b border-border-config text-left text-xs">
+              <th class="text-font-text-title text-xs py-2">Nome</th>
+              <th class="px-2 py-2 text-font-text-title text-xs">Quantidade De Usuarios</th>
+              <th class="px-2 py-2 text-font-text-title text-xs">Permissões</th>
             </tr>
           </thead>
           <tbody>
@@ -49,13 +49,13 @@
               <td colspan="2" class="h-2"></td>
             </tr>
             <tr class="bg-font-line h-[26px]">
-              <td class="h-[22px] px-2">
-                <p class="text-sm font-medium text-gray-700">Admin</p>
+              <td class="h-[22px] px-2 rounded-l">
+                <p class="text-sm font-medium">Admin</p>
               </td>
               <td class="px-2 h-[22px]">
-                <p class="text-sm text-gray-700">1</p>
+                <p class="text-sm">1</p>
               </td>
-              <td class="h-[22px] px-2">
+              <td class="h-[22px] px-2 rounded-r">
                 <span
                   class="bg-circle-config text-xs font-medium mr-2 w-[48px] h-[22px] rounded-4xl items-center flex justify-center">Tudo</span>
               </td>
@@ -65,10 +65,10 @@
             </tr>
             <tr class="bg-white h-[40px]">
               <td class="h-[22px] px-2">
-                <p class="text-sm font-medium text-gray-700">Desenvolvedor</p>
+                <p class="text-sm font-medium">Desenvolvedor</p>
               </td>
               <td class="h-[22px] px-2">
-                <p class="text-sm text-gray-700">2</p>
+                <p class="text-sm">2</p>
               </td>
               <td class="h-[22px] px-2">
                 <span
@@ -86,13 +86,13 @@
               </td>
             </tr>
             <tr class="bg-gray-100 h-[26px]">
-              <td class="h-[22px] px-2">
-                <p class="text-sm font-medium text-gray-700">Recursos Humanos</p>
+              <td class="h-[22px] px-2 rounded-l">
+                <p class="text-sm font-medium">Recursos Humanos</p>
               </td>
               <td class="h-[22px] px-2">
-                <p class="text-sm text-gray-700">1</p>
+                <p class="text-sm">1</p>
               </td>
-              <td class="h-[22px] px-2">
+              <td class="h-[22px] px-2 rounded-r">
                 <span
                   class="flex w-[70px] items-center justify-center bg-circle-config text-xs font-medium mr-2 rounded-4xl h-[22px]">Nenhuma</span>
               </td>
@@ -105,84 +105,84 @@
       </div>
 
       <!--! Usuarios -->
-      <div class="p-6 bg-white rounded-lg w-[916px] h-[342px]">
+      <div class="p-6 pr-10 bg-white rounded-lg w-[916px] h-[342px]">
         <div class="flex justify-between items-center">
           <h2 class="text-xl font-semibold mb-2">Usuários</h2>
-          <AiFillPlusSquare class="text-purple-circle rounded-md" />
+          <AiFillPlusSquare class="text-purple-circle rounded-2xl" />
         </div>
         <div class="border-t border-border-config"></div>
-        <table class="w-[880px] border-collapse">
-          <thead class="w-full">
-            <tr class="border-b border-border-config text-left text-xs text-font-text-title">
-              <th class="py-2 text-font-text-title text-xs text-left w-[230px]">Nome</th>
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b border-border-config text-left text-xs">
+              <th class="py-2 text-font-text-title text-xs text-left w-[163px]">Nome</th>
               <th class="py-2 text-font-text-title text-xs text-left w-[270px]">Email</th>
-              <th class="py-2 text-font-text-title text-xs text-left w-[210px]">Perfil</th>
-              <th class="py-2 text-font-text-title text-xs text-left w-[90px]">Status</th>
-              <th class="py-2 text-font-text-title text-xs w-[50px] text-right"></th>
+              <th class="py-2 text-font-text-title text-xs text-left w-[220px]">Perfil</th>
+              <th class="py-2 text-font-text-title text-xs text-left w-[80px] ">Status</th>
+              <th class="py-2 text-font-text-title text-xs w-[40px] text-right"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td colspan="5" class="h-2"></td>
             </tr>
-            <tr class="bg-font-line">
-              <td class="px-2 h-[26px]">
-                <p class="text-sm font-medium text-gray-700">Junior Luiz</p>
+            <tr class="bg-font-line rounded">
+              <td class="px-2 h-[26px] rounded-l">
+                <p class="text-sm font-medium">Junior Luiz</p>
               </td>
               <td class="h-[26px]">
-                <p class="text-sm text-gray-700">junior@convicti.com.br</p>
+                <p class="text-sm">junior@convicti.com.br</p>
               </td>
               <td class="h-[26px]">
                 <span class="text-xs font-medium">Admin</span>
               </td>
-              <td class="h-[26px] text-center">
+              <td class="h-[26px] text-center rounded-r">
                 <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded-md uppercase text-font-ativo">
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo">
                   Ativo
                 </span>
               </td>
               <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="ml-5">
+                <img :src="imgEdit" alt="icon de editar" class="ml-6">
               </td>
             </tr>
             <tr class="bg-white h-[40px]">
-              <td class="px-2 h-[26px]">
-                <p class="text-sm font-medium text-gray-700">joao Lucas</p>
+              <td class="px-2 h-[26px] rounded">
+                <p class="text-sm font-medium">Joao Lucas</p>
               </td>
               <td class="h-[26px]">
-                <p class="text-sm text-gray-700">joao.lucas@convicti.com.br</p>
+                <p class="text-sm">joao.lucas@convicti.com.br</p>
               </td>
               <td class="h-[26px]">
                 <span class="text-xs font-medium">Desenvolvedor</span>
               </td>
               <td class="h-[26px] text-center">
                 <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded-md uppercase text-font-ativo">
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded uppercase text-font-ativo">
                   Ativo
                 </span>
               </td>
               <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="ml-5">
+                <img :src="imgEdit" alt="icon de editar" class="ml-6">
               </td>
             </tr>
             <tr class="bg-font-line">
-              <td class="px-2 h-[26px]">
-                <p class="text-sm font-medium text-gray-700">Cíntia Lopes</p>
+              <td class="px-2 h-[26px] rounded-l">
+                <p class="text-sm font-medium">Cíntia Lopes</p>
               </td>
               <td class="h-[26px]">
-                <p class="text-sm text-gray-700">cintia.lopes@convicti.com.br</p>
+                <p class="text-sm">cintia.lopes@convicti.com.br</p>
               </td>
               <td class="h-[26px]">
                 <span class="text-xs font-medium">Recursos Humanos</span>
               </td>
-              <td class="h-[26px] text-center">
+              <td class="h-[26px] text-center rounded-r">
                 <span
-                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center rounded-md uppercase text-font-ativo">
+                  class="bg-border-ativo text-xs font-medium w-[84px] h-[20px] flex items-center justify-center uppercase text-font-ativo">
                   Ativo
                 </span>
               </td>
               <td class="w-[14px] h-[14px] bg-white">
-                <img :src="imgEdit" alt="icon de editar" class="ml-5">
+                <img :src="imgEdit" alt="icon de editar" class="ml-6">
               </td>
             </tr>
           </tbody>
