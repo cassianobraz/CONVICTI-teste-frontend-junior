@@ -51,7 +51,7 @@
           class="w-[442px] h-10 border border-gray-300 rounded-md px-3 py-2 mb-4" />
 
         <!-- Seção Perfil -->
-        <div class="space-y-3">
+        <div class="space-y-3 mb-5">
           <div class="flex justify-between items-center">
             <span class="text-xs text-font-dash">Perfil</span>
           </div>
@@ -60,9 +60,8 @@
             <input v-model="newUsuario.perfil" :value="perfil" type="radio" class="custom-radio" />
           </label>
         </div>
-
         <!-- Botões de Ação -->
-        <div class="flex justify-between mt-8 gap-2">
+        <div class="flex justify-between gap-2 mt-12">
           <button @click="closeModal"
             class="bg-button-back text-text-button-back h-10 w-[173px] rounded-md cursor-pointer">
             Voltar
@@ -111,7 +110,7 @@ const perfis = [ 'Admin', 'Desenvolvedor', 'Recursos Humanos' ];
 const newUsuario = ref({
   nome: '',
   email: '',
-  perfil: 'Desenvolvedor', 
+  perfil: 'Desenvolvedor',
 });
 
 function closeModal() {
@@ -123,7 +122,7 @@ function resetForm() {
   newUsuario.value = {
     nome: '',
     email: '',
-    perfil: 'Desenvolvedor', 
+    perfil: 'Desenvolvedor',
   };
 }
 
