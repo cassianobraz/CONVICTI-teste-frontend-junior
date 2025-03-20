@@ -18,5 +18,5 @@
 <script setup>
 import Usuario from './Usuarios.vue';
 import Perfils from './Perfils.vue';
-import Layout from '../../view/Layout.vue';
+import Layout from '@/view/Layout.vue';
 </script>

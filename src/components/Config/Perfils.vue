@@ -66,7 +66,6 @@ function getPermissaoClass(permissao) {
   }
 }
 
-// Array de objetos para perfis
 const perfis = ref([
   {
     nome: 'Admin',

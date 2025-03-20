@@ -1,8 +1,7 @@
 <template>
-  <div class="flex w-7xl h-[832px] bg-gray-100">
+  <div class="flex w-7xl h-[52rem] bg-gray-100">
     <!--! Sidebar -->
     <Layout />
-
     <div class="flex-1 -mt-26 ml-12 space-y-3">
       <h2 class="text-[32px] font-semibold mb-4">Estatísticas</h2>
       <div class="flex gap-6 rounded-md">
@@ -62,114 +61,22 @@
           </div>
         </div>
       </div>
-      <!--! feedbacks -->
-      <div class="px-6 py-2 bg-white rounded-lg w-[930px] h-[268px]">
-        <h2 class="text-xl font-semibold mb-2">Feedbacks</h2>
-        <table class="w-full">
-          <thead>
-            <tr class="text-left text-xs text-font-dash">
-              <th class="w-[53px] h-[16px] py-1">Avaliação</th>
-              <th class="w-[26px] h-[16px] px-2 py-1">Data</th>
-              <th class="w-[53px] h-[16px] px-2 py-1">Avaliação</th>
-              <th class="w-[53px] h-[16px] px-2 py-1">Melhorias</th>
-              <th class="w-[60px] h-[16px] px-2 py-1">Plataforma</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="bg-font-line">
-              <td class="w-[300px] h-[41px] px-2 py-1">
-                <p class="text-[10px] text-justify text-font-text-dash">
-                  Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.
-                  Quando vira o mês o aplicativo apaga os dados da produção dos meses anteriores, não sendo possível
-                  consultar os meses anteriores. Antes não tinha esse problema.
-                </p>
-              </td>
-              <td class="w-[50px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-6">01/04/24</p>
-              </td>
-              <td class="w-[8px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-6">4</p>
-              </td>
-              <td class="w-[105px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-5">Dados de Produção<br>Suporte ao Usuário</p>
-              </td>
-              <td class="w-[60px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-6">Android</p>
-              </td>
-            </tr>
-            <tr class="bg-white">
-              <td class="w-[53px] h-[16px] px-2 py-1">
-                <p class="text-[10px] text-font-text-dash">
-                  Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.
-                </p>
-              </td>
-              <td class="w-[26px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-3">30/03/24</p>
-              </td>
-              <td class="w-[53px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-3">5</p>
-              </td>
-              <td class="w-[53px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-4">-</p>
-              </td>
-              <td class="w-[60px] h-[16px] px-2 py-1">
-                <p class="text-xs -mt-4">IOS</p>
-              </td>
-            </tr>
-            <tr class="bg-font-line">
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-            </tr>
-            <tr class="bg-white">
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-            </tr>
-            <tr class="bg-font-line">
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-              <td class="h-[27px] px-2 py-1"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!--! final -->
-      <div class="px-6 py-2 bg-white rounded-lg w-[933px] h-[153px]">
-        <h2 class="text-xl font-semibold mb-4">Novas Funcionalidades</h2>
-        <div class="mr-8">
-          <div class="flex justify-between text-font-dash text-xs -mt-1">
-            <h3>Funcionalidade</h3>
-            <h3>Taxa De Uso</h3>
-          </div>
-          <div class="space-y-2 mt-2">
-            <div class="flex justify-between px-4 w-[876px] h-[27px]">
-              <h3>Veículo em Rota</h3>
-              <h3 class="text-font-taxa mr-3">92%</h3>
-            </div>
-            <div class="flex justify-between px-4 bg-font-line w-[876px] h-[27px]">
-              <h3 class="flex items-center">Avaliação de coleta</h3>
-              <h3 class="text-font-taxa mr-3">78%</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- feedbacks -->
+      <Feadbacks />
+      <!--! New Features -->
+      <Features />
     </div>
   </div>
 </template>
 
 <script setup>
-import Layout from '../../view/Layout.vue';
+import Layout from '@/view/Layout.vue';
 import imgCloud from '@/assets/cloud.svg';
 import imgStar from '@/assets/star.svg';
 import imgTimes from '@/assets/times-hexagon.svg';
 import imgAndroid from '@/assets/android.svg';
 import imgApple from '@/assets/apple.svg';
+import Feadbacks from './Feadbacks.vue';
+import Features from './Features.vue';
 import { BsArrowDown } from "vue-icons-plus/bs";
 </script>

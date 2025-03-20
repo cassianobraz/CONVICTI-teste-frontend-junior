@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import Dash from '@/components/Dashboard/Dash.vue';
+import Dash from '@/components/dashboard/Dash.vue';
 </script>
