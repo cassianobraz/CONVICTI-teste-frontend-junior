@@ -21,7 +21,7 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'NotFound',
+    name: 'Home',
     component: lazyLoad('Home'),
   },
 ]
