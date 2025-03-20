@@ -12,27 +12,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="(feedback, index) in feedbacks"
-          :key="index"
-          :class="index % 2 === 0 ? 'bg-font-line' : 'bg-white'"
-        >
-          <td class="w-[300px] h-[41px] px-2 py-1">
-            <p class="text-[10px] text-justify text-font-text-dash">
-              {{ feedback.text }}
-            </p>
+        <tr v-for="(feedback, index) in feedbacks" :key="index" :class="index % 2 === 0 ? 'bg-font-line' : 'bg-white'">
+          <td class="w-[300px] h-[41px] px-2 py-2 align-top">
+            <p :class="feedback.class">{{ feedback.text }}</p>
           </td>
-          <td class="w-[50px] h-[16px] px-2 py-1">
-            <p class="text-xs -mt-6">{{ feedback.date }}</p>
+          <td class="w-[50px] h-[10px] px-2 py-2 align-top">
+            <p class="text-xs">{{ feedback.date }}</p>
           </td>
-          <td class="w-[8px] h-[16px] px-2 py-1">
-            <p class="text-xs -mt-6">{{ feedback.rating }}</p>
+          <td class="w-[8px] h-[10px] px-2 py-2 align-top">
+            <p class="text-xs">{{ feedback.rating }}</p>
           </td>
-          <td class="w-[105px] h-[16px] px-2 py-1">
-            <p class="text-xs -mt-5">{{ feedback.improvements }}</p>
+          <td class="w-[105px] h-[10px] px-2 py-2 align-top">
+            <p class="text-xs">{{ feedback.improvements }}</p>
           </td>
-          <td class="w-[60px] h-[16px] px-2 py-1">
-            <p class="text-xs -mt-6">{{ feedback.platform }}</p>
+          <td class="w-[60px] h-[10px] px-2 py-2 align-top">
+            <p class="text-xs">{{ feedback.platform }}</p>
           </td>
         </tr>
       </tbody>
@@ -43,7 +37,7 @@
 <script setup>
 import { ref } from 'vue';
 
-// Array para Feedbacks
+// Array para Feedbacks com classes Tailwind
 const feedbacks = ref([
   {
     text: 'Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite. Quando vira o mês o aplicativo apaga os dados da produção dos meses anteriores, não sendo possível consultar os meses anteriores. Antes não tinha esse problema.',
@@ -51,6 +45,7 @@ const feedbacks = ref([
     rating: '4',
     improvements: 'Dados de Produção\nSuporte ao Usuário',
     platform: 'Android',
+    class: 'text-[10px] text-justify leading-normal',
   },
   {
     text: 'Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.',
@@ -58,8 +53,8 @@ const feedbacks = ref([
     rating: '5',
     improvements: '-',
     platform: 'IOS',
+    class: 'text-[10px] text-justify leading-normal',
   },
 ]);
 </script>
-
-<style lang="scss" scoped></style>
+<style scoped></style>

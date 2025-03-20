@@ -18,6 +18,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td colspan="2" class="h-2"></td>
+        </tr>
         <tr v-for="(perfil, index) in perfis" :key="index"
           :class="index % 2 === 0 ? 'bg-font-line h-[26px]' : 'bg-white h-[40px]'">
           <td class="h-[22px] px-2 rounded-l">
@@ -175,17 +178,14 @@ function openModalForAdd() {
 
 function openModalForEdit(perfil) {
   isEditMode.value = true;
-
-  // Se o perfil tiver a permissão "Tudo", marque todos os checkboxes
-  const hasAllPermissions = perfil.permissoes.includes('Tudo');
   currentPerfil.value = {
     ...perfil,
     permissoes: {
-      downloads: hasAllPermissions || perfil.permissoes.includes('Downloads'),
-      avaliacoes: hasAllPermissions || perfil.permissoes.includes('Avaliações'),
-      erros: hasAllPermissions || perfil.permissoes.includes('Erros'),
-      feedbacks: hasAllPermissions || perfil.permissoes.includes('Feedbacks'),
-      novasFuncionalidades: hasAllPermissions || perfil.permissoes.includes('Novas Funcionalidades'),
+      downloads: perfil.permissoes.includes('Downloads'),
+      avaliacoes: perfil.permissoes.includes('Avaliações'),
+      erros: perfil.permissoes.includes('Erros'),
+      feedbacks: perfil.permissoes.includes('Feedbacks'),
+      novasFuncionalidades: perfil.permissoes.includes('Novas Funcionalidades'),
     },
   };
   showModal.value = true;
@@ -196,29 +196,18 @@ function closeModal() {
 }
 
 function saveChanges() {
-  const allChecked =
-    currentPerfil.value.permissoes.downloads &&
-    currentPerfil.value.permissoes.avaliacoes &&
-    currentPerfil.value.permissoes.erros &&
-    currentPerfil.value.permissoes.feedbacks &&
-    currentPerfil.value.permissoes.novasFuncionalidades;
-
-  const selectedPermissions = Object.keys(currentPerfil.value.permissoes).filter(
-    (key) => currentPerfil.value.permissoes[ key ]
-  );
-
   if (isEditMode.value) {
     const index = perfis.value.findIndex((p) => p.nome === currentPerfil.value.nome);
     if (index !== -1) {
       perfis.value[ index ] = {
         ...currentPerfil.value,
-        permissoes: allChecked ? [ 'Tudo' ] : selectedPermissions,
+        permissoes: Object.keys(currentPerfil.value.permissoes).filter((key) => currentPerfil.value.permissoes[ key ]),
       };
     }
   } else {
     perfis.value.push({
       ...currentPerfil.value,
-      permissoes: allChecked ? [ 'Tudo' ] : selectedPermissions,
+      permissoes: Object.keys(currentPerfil.value.permissoes).filter((key) => currentPerfil.value.permissoes[ key ]),
     });
   }
   closeModal();

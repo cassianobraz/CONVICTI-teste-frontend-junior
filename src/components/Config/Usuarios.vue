@@ -17,6 +17,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td colspan="2" class="h-2"></td>
+        </tr>
         <tr v-for="(usuario, index) in usuarios" :key="index"
           :class="index % 2 === 0 ? 'bg-font-line h-[26px]' : 'bg-white h-[40px]'">
           <td class="px-2 h-[26px] rounded-l">
