@@ -2,8 +2,8 @@
   <div class="p-6 pr-11 bg-white rounded-lg w-[916px] h-[342px]">
     <div class="flex justify-between items-center">
       <h2 class="text-xl font-semibold mb-2">Usuários</h2>
-      <a class="cursor-pointer hover:bg-purple-circle2" @click="showModal = true"><img :src="imgPlus"
-          alt="icon de editar" /></a>
+      <a class="cursor-pointer hover:bg-purple-circle2" @click="openModalForAdd"><img :src="imgPlus"
+          alt="icon de adicionar" /></a>
     </div>
     <div class="border-t border-border-config"></div>
     <table class="w-full border-collapse">
@@ -35,19 +35,19 @@
             </span>
           </td>
           <td class="w-[14px] h-[14px] bg-white">
-            <img :src="imgEdit" alt="icon de editar" class="ml-6" />
+            <img :src="imgEdit" alt="icon de editar" class="ml-6 cursor-pointer" @click="openModalForEdit(usuario)" />
           </td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Modal Novo Usuário -->
+    <!-- Modal -->
     <div v-if="showModal" class="absolute insert-0 flex items-center justify-center z-50 -mt-[25.8rem] ml-[5.1rem]">
       <div class="bg-white rounded-lg shadow-lg px-8 w-[506px] h-[412px]">
-        <h2 class="text-xl font-semibold py-4 mt-4 -mb-3">Novo Usuário</h2>
-        <input v-model="newUsuario.nome" type="text" placeholder="Nome do usuário"
+        <h2 class="text-xl font-semibold py-4 mt-4 -mb-3">{{ isEditMode ? 'Editar Usuário' : 'Novo Usuário' }}</h2>
+        <input v-model="currentUsuario.nome" type="text" placeholder="Nome do usuário"
           class="w-[442px] h-10 border border-gray-300 rounded-md px-3 py-2 mb-4" />
-        <input v-model="newUsuario.email" type="email" placeholder="Email"
+        <input v-model="currentUsuario.email" type="email" placeholder="Email"
           class="w-[442px] h-10 border border-gray-300 rounded-md px-3 py-2 mb-4" />
 
         <!-- Seção Perfil -->
@@ -57,18 +57,19 @@
           </div>
           <label v-for="(perfil, idx) in perfis" :key="idx" class="flex justify-between items-center cursor-pointer">
             <span>{{ perfil }}</span>
-            <input v-model="newUsuario.perfil" :value="perfil" type="radio" class="custom-radio" />
+            <input v-model="currentUsuario.perfil" :value="perfil" type="radio" class="custom-radio" />
           </label>
         </div>
+
         <!-- Botões de Ação -->
         <div class="flex justify-between gap-2 mt-12">
           <button @click="closeModal"
             class="bg-button-back text-text-button-back h-10 w-[173px] rounded-md cursor-pointer">
             Voltar
           </button>
-          <button @click="addNewUsuario"
+          <button @click="saveChanges"
             class="bg-button-add text-text-button-add h-10 w-[259px] rounded-md cursor-pointer">
-            Adicionar
+            {{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}
           </button>
         </div>
       </div>
@@ -83,6 +84,13 @@ import imgPlus from '@/assets/square-plus.svg';
 import imgEdit from '@/assets/edit.svg';
 
 const showModal = ref(false);
+const isEditMode = ref(false);
+
+const currentUsuario = ref({
+  nome: '',
+  email: '',
+  perfil: 'Desenvolvedor',
+});
 
 const usuarios = ref([
   {
@@ -107,35 +115,40 @@ const usuarios = ref([
 
 const perfis = [ 'Admin', 'Desenvolvedor', 'Recursos Humanos' ];
 
-const newUsuario = ref({
-  nome: '',
-  email: '',
-  perfil: 'Desenvolvedor',
-});
-
-function closeModal() {
-  showModal.value = false;
-  resetForm();
-}
-
-function resetForm() {
-  newUsuario.value = {
+function openModalForAdd() {
+  isEditMode.value = false;
+  currentUsuario.value = {
     nome: '',
     email: '',
     perfil: 'Desenvolvedor',
   };
+  showModal.value = true;
 }
 
-function addNewUsuario() {
-  if (!newUsuario.value.nome || !newUsuario.value.email || !newUsuario.value.perfil) {
+function openModalForEdit(usuario) {
+  isEditMode.value = true;
+  currentUsuario.value = { ...usuario };
+  showModal.value = true;
+}
+
+function closeModal() {
+  showModal.value = false;
+}
+
+function saveChanges() {
+  if (!currentUsuario.value.nome || !currentUsuario.value.email || !currentUsuario.value.perfil) {
     alert('Por favor, preencha todos os campos.');
     return;
   }
 
-  usuarios.value.push({
-    ...newUsuario.value,
-    status: 'Ativo',
-  });
+  if (isEditMode.value) {
+    const index = usuarios.value.findIndex((u) => u.email === currentUsuario.value.email);
+    if (index !== -1) {
+      usuarios.value[ index ] = { ...currentUsuario.value, status: 'Ativo' };
+    }
+  } else {
+    usuarios.value.push({ ...currentUsuario.value, status: 'Ativo' });
+  }
 
   closeModal();
 }

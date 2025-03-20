@@ -2,8 +2,8 @@
   <div class="p-6 pr-11 bg-white rounded-lg w-[916px] h-[342px]">
     <div class="flex justify-between items-center">
       <h2 class="text-xl font-semibold mb-2">Perfils</h2>
-      <a class="cursor-pointer hover:bg-purple-circle2" @click="showModal = true"><img :src="imgPlus"
-          alt="icon de editar" /></a>
+      <a class="cursor-pointer hover:bg-purple-circle2" @click="openModalForAdd"><img :src="imgPlus"
+          alt="icon de adicionar" /></a>
     </div>
     <div class="border-t border-border-config"></div>
     <table class="w-full border-collapse">
@@ -18,8 +18,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(perfil, index) in perfis" :key="index" :class="index % 2 === 0 ? 'bg-font-line h-[26px]' : 'bg-white h-[40px]'
-          ">
+        <tr v-for="(perfil, index) in perfis" :key="index"
+          :class="index % 2 === 0 ? 'bg-font-line h-[26px]' : 'bg-white h-[40px]'">
           <td class="h-[22px] px-2 rounded-l">
             <p class="text-sm font-medium">{{ perfil.nome }}</p>
           </td>
@@ -33,17 +33,18 @@
             </span>
           </td>
           <td class="w-[14px] h-[14px] bg-white">
-            <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2" />
+            <img :src="imgEdit" alt="icon de editar" class="mr-5 ml-2 cursor-pointer"
+              @click="openModalForEdit(perfil)" />
           </td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Modal Novo Perfil -->
+    <!-- Modal -->
     <div v-if="showModal" class="absolute insert-0 flex items-center justify-center z-50 ml-20 -mt-[2.85rem]">
       <div class="bg-white rounded-lg shadow-lg px-8 w-[506px] h-[412px]">
-        <h2 class="text-xl font-semibold py-4 mt-4">Novo Perfil</h2>
-        <input v-model="newPerfilName" type="text" placeholder="Novo Perfil"
+        <h2 class="text-xl font-semibold py-4 mt-4">{{ isEditMode ? 'Editar Perfil' : 'Novo Perfil' }}</h2>
+        <input v-model="currentPerfil.nome" type="text" placeholder="Nome do Perfil"
           class="w-[442px] border border-gray-300 rounded-md px-3 py-2 mb-4" />
         <div class="space-y-3">
           <div class="flex justify-between items-center">
@@ -52,35 +53,35 @@
           <div class="flex justify-between items-center">
             <span class="text-[14px]">Downloads</span>
             <label class="switch">
-              <input type="checkbox" v-model="permissions.downloads" />
+              <input type="checkbox" v-model="currentPerfil.permissoes.downloads" />
               <span class="slider round"></span>
             </label>
           </div>
           <div class="flex justify-between items-center">
             <span class="text-[14px]">Avaliações</span>
             <label class="switch">
-              <input type="checkbox" v-model="permissions.avaliacoes" />
+              <input type="checkbox" v-model="currentPerfil.permissoes.avaliacoes" />
               <span class="slider round"></span>
             </label>
           </div>
           <div class="flex justify-between items-center">
             <span class="text-[14px]">Erros</span>
             <label class="switch">
-              <input type="checkbox" v-model="permissions.erros" />
+              <input type="checkbox" v-model="currentPerfil.permissoes.erros" />
               <span class="slider round"></span>
             </label>
           </div>
           <div class="flex justify-between items-center">
             <span class="text-[14px]">Feedbacks</span>
             <label class="switch">
-              <input type="checkbox" v-model="permissions.feedbacks" />
+              <input type="checkbox" v-model="currentPerfil.permissoes.feedbacks" />
               <span class="slider round"></span>
             </label>
           </div>
           <div class="flex justify-between items-center">
             <span class="text-[14px]">Novas Funcionalidades</span>
             <label class="switch">
-              <input type="checkbox" v-model="permissions.novasFuncionalidades" />
+              <input type="checkbox" v-model="currentPerfil.permissoes.novasFuncionalidades" />
               <span class="slider round"></span>
             </label>
           </div>
@@ -90,9 +91,9 @@
             class="bg-button-back text-text-button-back h-10 w-[173px] rounded-md cursor-pointer">
             Voltar
           </button>
-          <button @click="addNewPerfil"
+          <button @click="saveChanges"
             class="bg-button-add text-text-button-add h-10 w-[259px] rounded-md cursor-pointer">
-            Adicionar
+            {{ isEditMode ? 'Salvar Alterações' : 'Adicionar' }}
           </button>
         </div>
       </div>
@@ -108,13 +109,16 @@ import imgPlus from '@/assets/square-plus.svg';
 import imgEdit from '@/assets/edit.svg';
 
 const showModal = ref(false);
-const newPerfilName = ref('');
-const permissions = ref({
-  downloads: false,
-  avaliacoes: false,
-  erros: false,
-  feedbacks: false,
-  novasFuncionalidades: false,
+const isEditMode = ref(false);
+const currentPerfil = ref({
+  nome: '',
+  permissoes: {
+    downloads: false,
+    avaliacoes: false,
+    erros: false,
+    feedbacks: false,
+    novasFuncionalidades: false,
+  },
 });
 
 const perfis = ref([
@@ -154,33 +158,69 @@ function getPermissaoClass(permissao) {
   }
 }
 
-function closeModal() {
-  showModal.value = false;
-  newPerfilName.value = '';
-  permissions.value = {
-    downloads: false,
-    avaliacoes: false,
-    erros: false,
-    feedbacks: false,
-    novasFuncionalidades: false,
+function openModalForAdd() {
+  isEditMode.value = false;
+  currentPerfil.value = {
+    nome: '',
+    permissoes: {
+      downloads: false,
+      avaliacoes: false,
+      erros: false,
+      feedbacks: false,
+      novasFuncionalidades: false,
+    },
   };
+  showModal.value = true;
 }
 
-function addNewPerfil() {
-  const newPerfil = {
-    nome: newPerfilName.value,
-    quantidadeUsuarios: 0,
-    permissoes: [],
+function openModalForEdit(perfil) {
+  isEditMode.value = true;
+
+  // Se o perfil tiver a permissão "Tudo", marque todos os checkboxes
+  const hasAllPermissions = perfil.permissoes.includes('Tudo');
+  currentPerfil.value = {
+    ...perfil,
+    permissoes: {
+      downloads: hasAllPermissions || perfil.permissoes.includes('Downloads'),
+      avaliacoes: hasAllPermissions || perfil.permissoes.includes('Avaliações'),
+      erros: hasAllPermissions || perfil.permissoes.includes('Erros'),
+      feedbacks: hasAllPermissions || perfil.permissoes.includes('Feedbacks'),
+      novasFuncionalidades: hasAllPermissions || perfil.permissoes.includes('Novas Funcionalidades'),
+    },
   };
+  showModal.value = true;
+}
 
-  if (permissions.value.downloads) newPerfil.permissoes.push('Downloads');
-  if (permissions.value.avaliacoes) newPerfil.permissoes.push('Avaliações');
-  if (permissions.value.erros) newPerfil.permissoes.push('Erros');
-  if (permissions.value.feedbacks) newPerfil.permissoes.push('Feedbacks');
-  if (permissions.value.novasFuncionalidades)
-    newPerfil.permissoes.push('Novas Funcionalidades');
+function closeModal() {
+  showModal.value = false;
+}
 
-  perfis.value.push(newPerfil);
+function saveChanges() {
+  const allChecked =
+    currentPerfil.value.permissoes.downloads &&
+    currentPerfil.value.permissoes.avaliacoes &&
+    currentPerfil.value.permissoes.erros &&
+    currentPerfil.value.permissoes.feedbacks &&
+    currentPerfil.value.permissoes.novasFuncionalidades;
+
+  const selectedPermissions = Object.keys(currentPerfil.value.permissoes).filter(
+    (key) => currentPerfil.value.permissoes[ key ]
+  );
+
+  if (isEditMode.value) {
+    const index = perfis.value.findIndex((p) => p.nome === currentPerfil.value.nome);
+    if (index !== -1) {
+      perfis.value[ index ] = {
+        ...currentPerfil.value,
+        permissoes: allChecked ? [ 'Tudo' ] : selectedPermissions,
+      };
+    }
+  } else {
+    perfis.value.push({
+      ...currentPerfil.value,
+      permissoes: allChecked ? [ 'Tudo' ] : selectedPermissions,
+    });
+  }
   closeModal();
 }
 </script>
