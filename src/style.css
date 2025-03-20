@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-nunito: Nunito, sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
   --color-purple-circle: #5452fc;
   --color-purple-circle2: #adadfa;
   --color-hover-dash: #dee6f8;
@@ -17,4 +17,10 @@
   --color-font-text-title: #808080;
   --color-font-ativo: #006737;
   --color-border-ativo: #CCFFE3;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-nunito);
+  }
 }
