@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import Main from '@/components/home/Main.vue';
+import Main from '@/components/Home/Main.vue';
 </script>
