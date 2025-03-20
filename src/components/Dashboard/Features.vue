@@ -7,8 +7,12 @@
         <h3>Taxa De Uso</h3>
       </div>
       <div class="space-y-2 mt-2">
-        <div v-for="(feature, index) in features" :key="index" :class="index % 2 === 0 ? 'bg-font-line' : ''"
-          class="flex justify-between px-4 w-[876px] h-[27px]">
+        <div
+          v-for="(feature, index) in features"
+          :key="index"
+          :class="index % 2 === 0 ? 'bg-font-line' : ''"
+          class="flex justify-between px-4 w-[876px] h-[27px]"
+        >
           <h3>{{ feature.name }}</h3>
           <h3 class="text-font-taxa mr-3">{{ feature.usageRate }}</h3>
         </div>
@@ -23,12 +27,12 @@ import { ref } from 'vue';
 // Array de Novas Funcionalidades
 const features = ref([
   {
-    name: "Veículo em Rota",
-    usageRate: "92%"
+    name: 'Veículo em Rota',
+    usageRate: '92%',
   },
   {
-    name: "Avaliação de coleta",
-    usageRate: "78%"
-  }
+    name: 'Avaliação de coleta',
+    usageRate: '78%',
+  },
 ]);
 </script>

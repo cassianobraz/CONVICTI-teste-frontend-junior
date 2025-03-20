@@ -11,12 +11,16 @@
   --color-font-line: #f6f6f6;
   --color-font-table: #a5a5a5;
   --color-font-text-dash: #303030;
-  --color-font-text-aside: #2F4565;
-  --color-border-config: #E6E6E6;
-  --color-circle-config: #D7D7F8;
+  --color-font-text-aside: #2f4565;
+  --color-border-config: #e6e6e6;
+  --color-circle-config: #d7d7f8;
   --color-font-text-title: #808080;
   --color-font-ativo: #006737;
-  --color-border-ativo: #CCFFE3;
+  --color-border-ativo: #ccffe3;
+  --color-button-back: #ececec;
+  --color-text-button-back: #606060;
+  --color-button-add: #cac6f9;
+  --color-text-button-add: #7f43ff;
 }
 
 @layer base {

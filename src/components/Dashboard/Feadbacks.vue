@@ -12,9 +12,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(feedback, index) in feedbacks" :key="index" :class="index % 2 === 0 ? 'bg-font-line' : 'bg-white'">
+        <tr
+          v-for="(feedback, index) in feedbacks"
+          :key="index"
+          :class="index % 2 === 0 ? 'bg-font-line' : 'bg-white'"
+        >
           <td class="w-[300px] h-[41px] px-2 py-1">
-            <p class="text-[10px] text-justify text-font-text-dash">{{ feedback.text }}</p>
+            <p class="text-[10px] text-justify text-font-text-dash">
+              {{ feedback.text }}
+            </p>
           </td>
           <td class="w-[50px] h-[16px] px-2 py-1">
             <p class="text-xs -mt-6">{{ feedback.date }}</p>
@@ -40,19 +46,19 @@ import { ref } from 'vue';
 // Array para Feedbacks
 const feedbacks = ref([
   {
-    text: "Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite. Quando vira o mês o aplicativo apaga os dados da produção dos meses anteriores, não sendo possível consultar os meses anteriores. Antes não tinha esse problema.",
-    date: "01/04/24",
-    rating: "4",
-    improvements: "Dados de Produção\nSuporte ao Usuário",
-    platform: "Android"
+    text: 'Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite. Quando vira o mês o aplicativo apaga os dados da produção dos meses anteriores, não sendo possível consultar os meses anteriores. Antes não tinha esse problema.',
+    date: '01/04/24',
+    rating: '4',
+    improvements: 'Dados de Produção\nSuporte ao Usuário',
+    platform: 'Android',
   },
   {
-    text: "Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.",
-    date: "30/03/24",
-    rating: "5",
-    improvements: "-",
-    platform: "IOS"
-  }
+    text: 'Aplicativo muito bom, porém poderiam atualizar mensalmente com os dados da qualidade do leite.',
+    date: '30/03/24',
+    rating: '5',
+    improvements: '-',
+    platform: 'IOS',
+  },
 ]);
 </script>
 

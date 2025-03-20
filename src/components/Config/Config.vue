@@ -10,7 +10,6 @@
 
       <!--! Usuarios -->
       <Usuario />
-
     </div>
   </div>
 </template>

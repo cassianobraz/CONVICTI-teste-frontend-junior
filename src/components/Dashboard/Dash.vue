@@ -27,7 +27,9 @@
             <p class="text-font-dash text-xl">Avaliações</p>
             <img :src="imgStar" alt="Logo" class="w-[26px] h-[26px]" />
           </div>
-          <p class="text-[40px] font-bold">4.2<span class="text-[16px]">/5</span></p>
+          <p class="text-[40px] font-bold">
+            4.2<span class="text-[16px]">/5</span>
+          </p>
           <div class="flex">
             <div class="flex gap-1 items-center">
               <img :src="imgAndroid" alt="Logo" class="w-4 h-4" />
@@ -78,5 +80,5 @@ import imgAndroid from '@/assets/android.svg';
 import imgApple from '@/assets/apple.svg';
 import Feadbacks from './Feadbacks.vue';
 import Features from './Features.vue';
-import { BsArrowDown } from "vue-icons-plus/bs";
+import { BsArrowDown } from 'vue-icons-plus/bs';
 </script>

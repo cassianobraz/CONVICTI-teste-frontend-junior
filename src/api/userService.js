@@ -15,7 +15,9 @@ export async function createTokenOauth(userData) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(`Erro ao criar token: ${errorData.error || response.statusText}`);
+      throw new Error(
+        `Erro ao criar token: ${errorData.error || response.statusText}`
+      );
     }
 
     const result = await response.json();
@@ -38,7 +40,9 @@ export async function getUser(token) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(`Erro ao buscar usuário: ${errorData.error || response.statusText}`);
+      throw new Error(
+        `Erro ao buscar usuário: ${errorData.error || response.statusText}`
+      );
     }
 
     const result = await response.json();

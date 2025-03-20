@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/view/Home.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '@/view/Home.vue';
 
-const lazyLoad = (view) => () => import(`@/view/${view}.vue`)
+const lazyLoad = (view) => () => import(`@/view/${view}.vue`);
 
 const routes = [
   {
@@ -24,11 +24,11 @@ const routes = [
     name: 'Home',
     component: lazyLoad('Home'),
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-})
+});
 
-export default router
+export default router;
