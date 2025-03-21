@@ -24,8 +24,8 @@ npm run dev
 ```
 
 ### 🌐 Acesse a versão online
-O projeto está disponível no **Netlify**:
-🔗 [Convicti no Netlify](https://convicti.netlify.app/)
+O projeto está disponível no **Netlify**:  
+🔗 <a href="https://convicti.netlify.app/" target="_blank" rel="noopener noreferrer">Convicti no Netlify</a>
 
 ## 🔀 Rotas de Acesso
 - **Home**: `/`
