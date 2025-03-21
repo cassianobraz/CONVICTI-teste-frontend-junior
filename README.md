@@ -78,3 +78,6 @@ O projeto **Convicti** destaca minhas habilidades em:
 - **Nome**: Cassiano Braz
 - **LinkedIn**: [Meu LinkedIn](https://www.linkedin.com/in/cassianobraz/)
 - **Email**: cassanopb@gmail.com
+
+## 📜 Licença
+Este projeto está licenciado sob a [MIT License](LICENSE).
