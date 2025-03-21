@@ -114,7 +114,6 @@ import imgEdit from '@/assets/edit.svg';
 const showModal = ref(false);
 const isEditMode = ref(false);
 
-// Objeto com todas as chaves de permissões possíveis
 const allPermissions = {
   tudo: 'Tudo',
   downloads: 'Downloads',
@@ -196,14 +195,22 @@ function closeModal() {
 function saveChanges() {
   const permissoesKeys = Object.keys(currentPerfil.value.permissoes).filter((key) => key !== 'tudo');
   const allChecked = permissoesKeys.every((key) => currentPerfil.value.permissoes[ key ]);
+  const noneChecked = permissoesKeys.every((key) => !currentPerfil.value.permissoes[ key ]);
 
   if (allChecked) {
     currentPerfil.value.permissoes = { tudo: true };
   }
 
-  const permissoesFinal = currentPerfil.value.permissoes.tudo
-    ? [ 'Tudo' ]
-    : permissoesKeys.filter((key) => currentPerfil.value.permissoes[ key ]).map((key) => allPermissions[ key ]);
+  let permissoesFinal;
+  if (currentPerfil.value.permissoes.tudo) {
+    permissoesFinal = [ 'Tudo' ];
+  } else if (noneChecked) {
+    permissoesFinal = [ 'Nenhum' ];
+  } else {
+    permissoesFinal = permissoesKeys
+      .filter((key) => currentPerfil.value.permissoes[ key ])
+      .map((key) => allPermissions[ key ]);
+  }
 
   if (isEditMode.value) {
     const index = perfis.value.findIndex((p) => p.nome === currentPerfil.value.nome);
@@ -213,7 +220,6 @@ function saveChanges() {
   } else {
     perfis.value.push({ ...currentPerfil.value, permissoes: permissoesFinal });
   }
-
   closeModal();
 }
 
