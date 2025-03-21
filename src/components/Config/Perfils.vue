@@ -107,15 +107,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import imgPlus from '@/assets/square-plus.svg';
 import imgEdit from '@/assets/edit.svg';
 
 const showModal = ref(false);
 const isEditMode = ref(false);
+
+// Objeto com todas as chaves de permissões possíveis
+const allPermissions = {
+  tudo: 'Tudo',
+  downloads: 'Downloads',
+  avaliacoes: 'Avaliações',
+  erros: 'Erros',
+  feedbacks: 'Feedbacks',
+  novasFuncionalidades: 'Novas Funcionalidades',
+};
+
 const currentPerfil = ref({
   nome: '',
   permissoes: {
+    tudo: false,
     downloads: false,
     avaliacoes: false,
     erros: false,
@@ -125,40 +137,15 @@ const currentPerfil = ref({
 });
 
 const perfis = ref([
-  {
-    nome: 'Admin',
-    quantidadeUsuarios: 1,
-    permissoes: [ 'Tudo' ],
-  },
-  {
-    nome: 'Desenvolvedor',
-    quantidadeUsuarios: 2,
-    permissoes: [ 'Downloads', 'Avaliações', 'Erros', 'Novas Funcionalidades' ],
-  },
-  {
-    nome: 'Recursos Humanos',
-    quantidadeUsuarios: 1,
-    permissoes: [ 'Nenhuma' ],
-  },
+  { nome: 'Admin', quantidadeUsuarios: 1, permissoes: [ 'Tudo' ] },
+  { nome: 'Desenvolvedor', quantidadeUsuarios: 2, permissoes: [ 'Downloads', 'Avaliações', 'Erros', 'Novas Funcionalidades' ] },
+  { nome: 'Recursos Humanos', quantidadeUsuarios: 1, permissoes: [ 'Nenhuma' ] },
 ]);
 
 function getPermissaoClass(permissao) {
-  switch (permissao) {
-    case 'Tudo':
-      return 'flex items-center justify-center bg-circle-config text-xs font-medium w-[48px] h-[22px] rounded-4xl';
-    case 'Downloads':
-      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
-    case 'Avaliações':
-      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
-    case 'Erros':
-      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2.5 py-0.5 rounded-4xl h-[22px]';
-    case 'Novas Funcionalidades':
-      return 'inline-block bg-circle-config text-xs font-medium mr-2 h-[22px] px-2.5 py-0.5 rounded-4xl';
-    case 'Nenhuma':
-      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
-    default:
-      return 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
-  }
+  return permissao === 'Tudo'
+    ? 'flex items-center justify-center bg-circle-config text-xs font-medium w-[48px] h-[22px] rounded-4xl'
+    : 'inline-block bg-circle-config text-xs font-medium mr-2 px-2 py-0.5 rounded-4xl h-[22px]';
 }
 
 function openModalForAdd() {
@@ -166,6 +153,7 @@ function openModalForAdd() {
   currentPerfil.value = {
     nome: '',
     permissoes: {
+      tudo: false,
       downloads: false,
       avaliacoes: false,
       erros: false,
@@ -178,15 +166,25 @@ function openModalForAdd() {
 
 function openModalForEdit(perfil) {
   isEditMode.value = true;
+
+  const permissoes = {
+    tudo: perfil.permissoes.includes('Tudo'),
+    downloads: perfil.permissoes.includes('Downloads'),
+    avaliacoes: perfil.permissoes.includes('Avaliações'),
+    erros: perfil.permissoes.includes('Erros'),
+    feedbacks: perfil.permissoes.includes('Feedbacks'),
+    novasFuncionalidades: perfil.permissoes.includes('Novas Funcionalidades'),
+  };
+
+  if (permissoes.tudo) {
+    Object.keys(permissoes).forEach((key) => {
+      permissoes[ key ] = true;
+    });
+  }
+
   currentPerfil.value = {
     ...perfil,
-    permissoes: {
-      downloads: perfil.permissoes.includes('Downloads'),
-      avaliacoes: perfil.permissoes.includes('Avaliações'),
-      erros: perfil.permissoes.includes('Erros'),
-      feedbacks: perfil.permissoes.includes('Feedbacks'),
-      novasFuncionalidades: perfil.permissoes.includes('Novas Funcionalidades'),
-    },
+    permissoes,
   };
   showModal.value = true;
 }
@@ -196,22 +194,46 @@ function closeModal() {
 }
 
 function saveChanges() {
+  const permissoesKeys = Object.keys(currentPerfil.value.permissoes).filter((key) => key !== 'tudo');
+  const allChecked = permissoesKeys.every((key) => currentPerfil.value.permissoes[ key ]);
+
+  if (allChecked) {
+    currentPerfil.value.permissoes = { tudo: true };
+  }
+
+  const permissoesFinal = currentPerfil.value.permissoes.tudo
+    ? [ 'Tudo' ]
+    : permissoesKeys.filter((key) => currentPerfil.value.permissoes[ key ]).map((key) => allPermissions[ key ]);
+
   if (isEditMode.value) {
     const index = perfis.value.findIndex((p) => p.nome === currentPerfil.value.nome);
     if (index !== -1) {
-      perfis.value[ index ] = {
-        ...currentPerfil.value,
-        permissoes: Object.keys(currentPerfil.value.permissoes).filter((key) => currentPerfil.value.permissoes[ key ]),
-      };
+      perfis.value[ index ] = { ...currentPerfil.value, permissoes: permissoesFinal };
     }
   } else {
-    perfis.value.push({
-      ...currentPerfil.value,
-      permissoes: Object.keys(currentPerfil.value.permissoes).filter((key) => currentPerfil.value.permissoes[ key ]),
-    });
+    perfis.value.push({ ...currentPerfil.value, permissoes: permissoesFinal });
   }
+
   closeModal();
 }
+
+watch(
+  () => currentPerfil.value.permissoes,
+  (newPermissoes) => {
+    const permissoesKeys = Object.keys(newPermissoes).filter((key) => key !== 'tudo');
+    currentPerfil.value.permissoes.tudo = permissoesKeys.every((key) => newPermissoes[ key ]);
+  },
+  { deep: true }
+);
+
+watch(
+  () => currentPerfil.value.permissoes.tudo,
+  (newValue) => {
+    Object.keys(currentPerfil.value.permissoes).forEach((key) => {
+      if (key !== 'tudo') currentPerfil.value.permissoes[ key ] = newValue;
+    });
+  }
+);
 </script>
 
 <style scoped>
@@ -247,9 +269,9 @@ function saveChanges() {
   content: '';
   height: 8px;
   width: 8px;
-  left: 80%;
+  left: 0;
   top: 50%;
-  transform: translate(-60%, -50%);
+  transform: translate(20%, -50%);
   border: 2px solid black;
   border-radius: 50%;
   background-color: transparent;
@@ -257,14 +279,8 @@ function saveChanges() {
   transition: 0.4s;
 }
 
-input:checked+.slider {
-  background-color: #7f43ff;
-}
-
 input:checked+.slider:before {
-  -webkit-transform: translateX(-10px) translate(-50%, -50%);
-  -ms-transform: translateX(-10px) translate(-50%, -50%);
-  transform: translateX(-10px) translate(-50%, -50%);
+  transform: translateX(10px) translate(-20%, -50%);
 }
 
 .slider.round {
